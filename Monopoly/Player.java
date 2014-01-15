@@ -5,12 +5,12 @@ import java.io.*;
 public class Player{
     protected String token, name;
     protected int money, initRoll, order;
-    protected Property[][] props;
+    protected Property[] props;
     //jail shitzz
     
     public Player (String plName, String plToken){
 	money = 1500;
-	props = new Property[10][4];
+	props = new Property[28];
     }
     
     public void addMoney(int amt) {//adds money for any reason

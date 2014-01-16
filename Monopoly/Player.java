@@ -6,11 +6,13 @@ public class Player{
     protected String token, name;
     protected int money, initRoll, order;
     protected Property[] props;
-    //jail shitzz
+    protected boolean jail;
+	//also if they have a get out of jail card?
     
     public Player (String plName, String plToken){
 	money = 1500;
 	props = new Property[28];
+	jail = false; 
     }
     
     public void addMoney(int amt) {//adds money for any reason
@@ -36,6 +38,18 @@ public class Player{
 	    return false;
     }
 
-    
+    public int getMoney() {
+		return this.money;
+	}
+	
+	public int numOfColourSet(String color){
+	//returns the number of properties in a set that is held
+		int count = 0;
+		for (int i = 0; i < props.length; i++) {
+			if (color.equals(props[i].getColour) {
+				count++; 
+			}
+		}
+		return count;
+	}
 }
-    

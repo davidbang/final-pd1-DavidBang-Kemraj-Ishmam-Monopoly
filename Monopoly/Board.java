@@ -8,8 +8,9 @@ public class Board {
 
     
     public Board {
-	board = new char [4] [10];
-	board [0] [0] = new Propert("Start");
+	//sub classes Property and EventSquares in array of Tiles
+	board = new Property [4] [10];
+	board [0] [0] = new Property("Go");
 	// will add more to board later, with each square having a different property
     }
 	    

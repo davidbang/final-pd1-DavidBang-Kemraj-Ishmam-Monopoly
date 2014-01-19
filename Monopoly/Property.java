@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Property{
+public class Property extends Tiles{
     int currentRent,numHouses,initRent, house1, house2, house3, house4, hotel, startPrice, mortgagePrice, housePrice;
     String name, colour;  
 	boolean mortgaged;
@@ -311,23 +311,23 @@ public class Property{
 		if (name == "Reading"){
 			startPrice = 200;
 			colour = "Railroad";
-			currenRent = 0;
+			currentRent = 0;
 			
 		}
 		if (name == "Pennsylvania RR"){
 			startPrice = 200;
 			colour = "Railroad";
-			currenRent = 0;
+			currentRent = 0;
 		}
 		if (name == "B&O"){
 			startPrice = 200;
 			colour = "Railroad";
-			currenRent = 0;
+			currentRent = 0;
 		}
 		if (name == "Short Line"){
 			startPrice = 200;
 			colour = "Railroad";
-			currenRent = 0;
+			currentRent = 0;
 		}
 			/* rent is 0 now, but there should be a var for roll 
 		so that it can utilize the rent value */
@@ -350,7 +350,7 @@ public class Property{
 		else if (numHouses == 3)
 			currentRent = house3;
 		else if (numHouses == 4)
-			currentRent = house;
+			currentRent = house4;
 		else if (numHouses == 5)
 			currentRent = hotel;
 	}
@@ -360,7 +360,9 @@ public class Property{
 		return this.mortgagePrice;
 	}
 	
-	
+	public Object getType(){
+		return getClass().getEnclosingClass();
+	}
 	
 	
 	

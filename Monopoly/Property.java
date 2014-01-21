@@ -4,11 +4,12 @@ import java.util.*;
 public class Property extends Tiles{
     int currentRent,numHouses,initRent, house1, house2, house3, house4, hotel, startPrice, mortgagePrice, housePrice;
     String name, colour;  
-	boolean mortgaged;
+	boolean mortgaged, owned;
     
     public Property (String name){
 		numHouses = 0;
 		mortgaged = false;
+		owned = false;
 		if (name == "Mediterranean"){
 	    startPrice = 60;
 	    initRent = 2;
@@ -364,7 +365,14 @@ public class Property extends Tiles{
 		return getClass().getEnclosingClass();
 	}
 	
-	
+	public String getEvent(){
+		if (mortgaged == true)
+			return "Mortgaged :)";
+		if (owned == false)
+			return "Buy?";
+		if (owned == true)
+			return "Rent!";
+	}
 	
 	
 }

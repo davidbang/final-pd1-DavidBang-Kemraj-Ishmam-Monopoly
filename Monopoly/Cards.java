@@ -1,3 +1,5 @@
+import java.util.*;
+import java.io.*;
 
 public class Cards extends EventTile{
     Random r = new Random ();

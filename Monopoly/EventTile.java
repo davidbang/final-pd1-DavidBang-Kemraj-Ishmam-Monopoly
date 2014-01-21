@@ -21,5 +21,7 @@ public class EventTile extends Tile{
 			return "Send Jail";
 		if (eventName == "Luxury Tax")
 			return "Luxury Tax";
+		if (eventName == "Jail")
+			return "Jail";
 	}
 }

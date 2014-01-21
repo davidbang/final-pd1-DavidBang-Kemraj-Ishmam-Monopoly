@@ -4,7 +4,8 @@ import java.util.*;
 public class Property extends Tiles{
     int currentRent,numHouses,initRent, house1, house2, house3, house4, hotel, startPrice, mortgagePrice, housePrice;
     String name, colour;  
-	boolean mortgaged, owned;
+    boolean mortgaged;
+    Player owner;
     
     public Property (String name){
 		numHouses = 0;
@@ -374,5 +375,8 @@ public class Property extends Tiles{
 			return "Rent!";
 	}
 	
+    public Player getOwner(){
+	return owner;
+    }
 	
 }

@@ -58,8 +58,9 @@ public class Board {
 	    
 
     Random R = new Random ();
-    public void move (Player a) {
-		int b = R.nextInt (11) + 2;
+    public void rollDice () {
+		int die1 = R.nextInt (6) + 1;
+		int die2 = R.nextInt (6) + 1;
 		//need location variable for player
 		//a.changelocation();
     }

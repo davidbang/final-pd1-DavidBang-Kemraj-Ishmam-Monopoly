@@ -53,6 +53,21 @@ public class Board {
 		board [3] [7] = new Property("Park Place");
 		board [3] [8] = new EventTile("Luxury Tax");
 		board [3] [9] = new Property("Boardwalk");
+
+ 	//creates cards
+	String [] chancec = new String [16];
+	Cards c = new Cards ();
+	
+	for (int i = 0; i < 16; i ++) {
+		chancec [i] = c.makechancedeck (i);
+	}
+
+	String [] communityc = new String [16];
+
+	for (int i = 0; i < 16; i ++) {
+		communityc [i] = c.makecommunitydeck (i);
+	}
+	
 		
     }
 	    

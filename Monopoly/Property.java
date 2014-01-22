@@ -10,7 +10,6 @@ public class Property extends Tiles{
     public Property (String name){
 		numHouses = 0;
 		mortgaged = false;
-		owned = false;
 		if (name == "Mediterranean"){
 	    startPrice = 60;
 	    initRent = 2;
@@ -369,9 +368,9 @@ public class Property extends Tiles{
 	public String getEvent(){
 		if (mortgaged == true)
 			return "Mortgaged :)";
-		if (owned == false)
+		if (owner == null)
 			return "Buy?";
-		if (owned == true)
+		else
 			return "Rent!";
 	}
 	

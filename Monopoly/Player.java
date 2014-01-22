@@ -53,5 +53,14 @@ public class Player{
 	return count;
     }
 
+	public boolean buyProperty (Property land){
+		if (this.money >= land.startPrice){
+			this.loseMoney(land.startPrice);
+			props.add(land);
+			land.owner = this;
+			return true;
+		}
+		return false;
+	}
     
 }

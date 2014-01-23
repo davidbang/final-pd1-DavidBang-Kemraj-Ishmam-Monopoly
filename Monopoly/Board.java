@@ -7,10 +7,12 @@ public class Board {
     protected Player P1, P2, P3, P4;
     protected String chanceC, communityC;
     protected Cards deck;
-    private int doubleRolls;
+    private int doubleCount;
     
     
     public Board() {
+	doubleCount = 0;
+
 	//sub classes Property and EventSquares in array of Tiles
 	board = new Tiles [4] [9];
 	board [0] [0] = new EventTile("Go");
@@ -69,9 +71,8 @@ public class Board {
 	
 	for (int i = 0; i < 16; i ++) {
 	    communityC [i] = deck.makecommunitydeck (i);
-	}
-	
-	
+	}	
+    
     }
     
     
@@ -86,12 +87,16 @@ public class Board {
     
     public void playGame (){
 	while (play) {
-	    //	P1.move;
-	    //	P2.move;
-	    //	P3.move;
-	    //	P4.move;
+	    //	P1.playerTurn;
+	    //	P2.playerTurn;
+	    //	P3.playerTurn;
+	    //	P4.playerTurn;
 	}
-	System.out.println ("Game Over");
+	//System.out.println ("Game Over");
+    }
+
+    public void playerMove(Player item, int spaces){
+	//implement the move stuff here. lolz idk yet
     }
 
     public void playerTurn (Player thing){
@@ -107,7 +112,12 @@ public class Board {
 	//this.move(thing, roll)
 
 	/*
-	  if (Double == true && finiish thiss)
+	if (Double == true && doubleCount < 3)
+	    playerTurn (thing);
+
+	doubleCount=0;
+
+	then add stuff for property management etc.
 	 */
     }
     

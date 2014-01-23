@@ -10,8 +10,14 @@ public class Board {
     private int doubleCount;
     
     
-    public Board() {
+    public Board(String one, String two, String three, String four) {
 	doubleCount = 0;
+
+	P1 = new Player(one);
+	P2 = new Player(two);
+	P3 = new Player(three);
+	P4 = new Player(four);
+
 
 	//sub classes Property and EventSquares in array of Tiles
 	board = new Tiles [4] [9];

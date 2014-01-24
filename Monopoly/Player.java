@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Player{
     protected String token, name;
-    protected int money, initRoll, order, lastRoll;
+    protected int money, initRoll, order, location;
     protected ArrayList<Property> props;
     protected boolean jail, jailCard;
     //also if they have a get out of jail card?

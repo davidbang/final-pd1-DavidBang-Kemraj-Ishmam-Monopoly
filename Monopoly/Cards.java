@@ -105,6 +105,7 @@ public class Cards{
 	}
 	if (a == 15){
 	    return "Your building loan matures – Collect $150";
+
 	}
 	return "";
     }

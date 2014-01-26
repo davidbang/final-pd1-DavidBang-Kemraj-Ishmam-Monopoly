@@ -7,7 +7,7 @@ public class Board {
     protected Player P1, P2, P3, P4;
     protected String [] chanceC, communityC;
     protected Cards deck;
-    private int doubleCount;
+    private int doubleCount, chanceNumber, communityNumber;
     
     
     public Board(String one, String t1, String two, String t2, String three, String t3, String four, String t4){

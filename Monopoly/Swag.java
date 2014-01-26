@@ -47,7 +47,7 @@ public class Swag {
 		
         //Size and display the window.
         Insets insets = frame.getInsets();
-        frame.setSize(700 + insets.left + insets.right,
+        frame.setSize(800 + insets.left + insets.right,
                       700 + insets.top + insets.bottom);
         frame.setVisible(true);
     }

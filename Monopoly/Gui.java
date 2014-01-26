@@ -32,4 +32,4 @@ public class Gui extends JFrame /* implements ActionListener */{
 	}
 }
 
-http://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
+//http://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html

@@ -2,8 +2,6 @@ import java.io.*;
 import java.util.*;
 
 public class Driver{
-	public static void main (String[] args){
-		public Board game;
-		public Player pOne;
-	}
+    public static void main (String[] args){
+    }
 }

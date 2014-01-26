@@ -3,20 +3,20 @@ import java.io.*;
 
 public class Board {
     public Tiles [] board;
-    private boolean play;
+    private boolean play, Double;
     protected Player P1, P2, P3, P4;
-    protected String chanceC, communityC;
+    protected String [] chanceC, communityC;
     protected Cards deck;
     private int doubleCount;
     
     
-    public Board(String one, String two, String three, String four) {
+    public Board(String one, String t1, String two, String t2, String three, String t3, String four, String t4){
 	doubleCount = 0;
 
-	P1 = new Player(one);
-	P2 = new Player(two);
-	P3 = new Player(three);
-	P4 = new Player(four);
+	P1 = new Player(one, t1);
+	P2 = new Player(two, t2);
+	P3 = new Player(three, t3);
+	P4 = new Player(four, t4);
 
 
 	//sub classes Property and EventSquares in array of Tiles
@@ -101,13 +101,9 @@ public class Board {
 	//System.out.println ("Game Over");
     }
 
-    public void playerMove(Player item, int spaces){
-	//implement the move stuff here. lolz idk yet
-    }
-
     public void move (Player playah, int spaces){
 	int prevLoc = playah.location;
-	playah.location = Location + spaces;
+	playah.location = playah.location + spaces;
 	if (playah.location%40 <prevLoc%40)
 	    playah.addMoney(200);
 	
@@ -117,22 +113,22 @@ public class Board {
 	int die1 = rollDie();
 	int die2 = rollDie();
 	int roll = die1 + die2;
+	Double = false;
 	
 	if (die1 == die2){
-	    boolean Double = true;
-	    doubleRolls ++;
+	    Double = true;
+	    doubleCount ++;
 	}
-	
-	//this.move(thing, roll)
+	this.move(thing, roll);
 
-	/*
+	
 	if (Double == true && doubleCount < 3)
 	    playerTurn (thing);
 
 	doubleCount=0;
 
-	then add stuff for property management etc.
-	 */
+	//then add stuff for property management etc.
+	 
     }
     
 }

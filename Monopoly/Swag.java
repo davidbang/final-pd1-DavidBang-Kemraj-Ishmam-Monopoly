@@ -7,38 +7,59 @@ public class Swag {
     public static void addComponentsToPane(Container pane) {
 	
 	pane.setLayout(null);
-	
-	
-	JButton b1 = new JButton("one");
-        JButton b2 = new JButton("two");
-        JButton b3 = new JButton("three");
-	
-        pane.add(b1);
-        pane.add(b2);
-        pane.add(b3);
-	
 	Insets insets = pane.getInsets();
-        Dimension size = b1.getPreferredSize();
-        b1.setBounds(insets.left, //shifts to right. Higher # -> farther to right (Xcor)
-		     insets.top, //shifts down. Higher # -> farther down (Ycor)
-                     size.width, //new width
-		     size.height); //new height
-        size = b2.getPreferredSize();
-        b2.setBounds(55 + insets.left, 40 + insets.top,
-                     size.width, size.height);
-        size = b3.getPreferredSize();
-        b3.setBounds(150 + insets.left, 15 + insets.top,
-                     size.width, size.height);
+	Dimension size;
 	
 	//sets up the background of the Panel
-	ImageIcon img = new ImageIcon("Board.jpg");
+	ImageIcon img = new ImageIcon("images/Board.jpg");
 	JLabel bg = new JLabel(img);
 	pane.add(bg);
 		size = bg.getPreferredSize();
-		bg.setBounds(insets.left, insets.top, 700, 700);
+		bg.setBounds(insets.left,
+					45 + insets.top,//leaves room for TB
+					600, 600);		
+	//adds the toolbar
+	JToolBar tb = new JToolBar();
+	pane.add(tb);
+	size = tb.getPreferredSize();
+	tb.setBounds(insets.left, insets.top,800,45);
+	addToolBarButtons(tb);
     }
-    
-    private static void createAndShowGUI() {
+	
+	protected static JButton makeButton(String imgName,
+								String actionCommand,
+								String toolTipText) {
+		//look for the image
+		String imgLocation = "images/" + imgName + ".jpg";
+				
+		//creating and initializing the button
+		JButton butt = new JButton();
+		butt.setActionCommand(actionCommand);
+		butt.setToolTipText(toolTipText);
+		//button.addActionListener(this);
+		butt.setIcon(new ImageIcon(imgLocation));
+		
+		return butt;
+	}
+	
+	private static void addToolBarButtons(JToolBar ToolB) {
+		JButton tbb = null; 
+		//first button - dice roll
+		tbb = makeButton("dice", "roll", "Rolls the dice");
+		ToolB.add(tbb);
+		
+		//second button - properties
+		tbb = makeButton("prop", "checkProp", "Check a Property/Attribute");
+		ToolB.add(tbb);
+		
+		//third button - player attributes
+		tbb = makeButton("player", "checkPlayer", "Check a Player");
+		ToolB.add(tbb);
+		
+		
+	}
+	
+       private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("Monopoly");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,8 +68,8 @@ public class Swag {
 		
         //Size and display the window.
         Insets insets = frame.getInsets();
-        frame.setSize(800 + insets.left + insets.right,
-                      700 + insets.top + insets.bottom);
+        frame.setSize(620 + insets.left + insets.right,
+                      680 + insets.top + insets.bottom);
         frame.setVisible(true);
     }
     

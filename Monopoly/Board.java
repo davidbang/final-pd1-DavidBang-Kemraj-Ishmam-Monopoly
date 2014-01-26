@@ -92,11 +92,15 @@ public class Board {
     }
     
     public void playGame (){
-	while (play) {
-	    //	P1.playerTurn;
-	    //	P2.playerTurn;
-	    //	P3.playerTurn;
-	    //	P4.playerTurn;
+	if (P1.stillPlaying||P2.stillPlaying||P3.stillPlaying||P4.stillPlaying) {
+	    if (P1.stillPlaying)
+		P1.playerTurn;
+	    if (P2.stillPlaying)
+		P2.playerTurn;
+	    if (P3.stillPlaying)
+		P3.playerTurn;
+	    if (P4.stillPlaying)
+		P4.playerTurn;
 	}
 	//System.out.println ("Game Over");
     }
@@ -106,6 +110,7 @@ public class Board {
 	playah.location = playah.location + spaces;
 	if (playah.location%40 <prevLoc%40)
 	    playah.addMoney(200);
+	board[playah.location%40].getEvent();
 	
     }
 

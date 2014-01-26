@@ -6,13 +6,15 @@ public class Player{
     protected String token, name;
     protected int money, initRoll, order, location;
     protected ArrayList<Property> props;
-    protected boolean jail, jailCard;
+    protected boolean jail, jailCard, stillPlaying;
     //also if they have a get out of jail card?
     
     public Player (String plName, String plToken){
 	money = 1500;
 	props = new ArrayList<Property>();
 	jail = false; 
+	jailCard = false;
+	stillPlaying = true;
     }
     
     public void addMoney(int amt) {//adds money for any reason

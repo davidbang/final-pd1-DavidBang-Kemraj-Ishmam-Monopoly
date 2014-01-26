@@ -3,10 +3,11 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Swag {
-    
+   
     public static void addComponentsToPane(Container pane) {
 	
 	pane.setLayout(null);
+	
 	
 	JButton b1 = new JButton("one");
         JButton b2 = new JButton("two");
@@ -28,20 +29,26 @@ public class Swag {
         size = b3.getPreferredSize();
         b3.setBounds(150 + insets.left, 15 + insets.top,
                      size.width, size.height);
+	
+	//sets up the background of the Panel
+	ImageIcon img = new ImageIcon("Board.jpg");
+	JLabel bg = new JLabel(img);
+	pane.add(bg);
+		size = bg.getPreferredSize();
+		bg.setBounds(insets.left, insets.top, 700, 700);
     }
     
     private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("Monopoly");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Set up the content pane.
         addComponentsToPane(frame.getContentPane());
-	
+		
         //Size and display the window.
         Insets insets = frame.getInsets();
-        frame.setSize(300 + insets.left + insets.right,
-                      125 + insets.top + insets.bottom);
+        frame.setSize(700 + insets.left + insets.right,
+                      700 + insets.top + insets.bottom);
         frame.setVisible(true);
     }
     

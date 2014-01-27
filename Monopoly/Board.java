@@ -11,16 +11,16 @@ public class Board {
     protected String [] chanceC, communityC;
     protected Cards deck;
     private int doubleCount, chanceNumber, communityNumber;
-	public int turns;
+    public int turns;
     
-	public boolean buyDialogue(String name){
-		JOptionPane box = new JOptionPane();
-		int option = box.showConfirmDialog(null, "BUY", "Would you like to purchase " + name + "?", JOptionPane.YES_NO_OPTION);
-		//box.dispose();
-		if (option == JOptionPane.YES_OPTION)
-			return true;
-		return false;
-	}
+    public boolean buyDialogue(String name){
+	JOptionPane box = new JOptionPane();
+	int option = box.showConfirmDialog(null, "BUY", "Would you like to purchase " + name + "?", JOptionPane.YES_NO_OPTION);
+	//box.dispose();
+	if (option == JOptionPane.YES_OPTION)
+	    return true;
+	return false;
+    }
     
     public Board(String one, String t1, String two, String t2, String three, String t3, String four, String t4){
 	doubleCount = 0;
@@ -96,16 +96,16 @@ public class Board {
     
     }
     
-	public Player currentPlayer(){
-		if (turns%4 == 1)
-			return P1;
-		if (turns%4 == 2)
-			return P2;
-		if (turns%4 == 3)
-			return P3;
-		else
-			return P4;
-	}
+    public Player currentPlayer(){
+	if (turns%4 == 1)
+	    return P1;
+	if (turns%4 == 2)
+	    return P2;
+	if (turns%4 == 3)
+	    return P3;
+	else
+	    return P4;
+    }
     
     
     public int rollDie () {
@@ -116,21 +116,21 @@ public class Board {
 	//a.changelocation();
     }
     
-	/*
-    public void playGame (){
-	if (P1.stillPlaying||P2.stillPlaying||P3.stillPlaying||P4.stillPlaying) {
-	    if (P1.stillPlaying)
-		P1.playerTurn;
-	    if (P2.stillPlaying)
-		P2.playerTurn;
-	    if (P3.stillPlaying)
-		P3.playerTurn;
-	    if (P4.stillPlaying)
-		P4.playerTurn;
-	}
-	//System.out.println ("Game Over");
-    }
-	*/
+    /*
+      public void playGame (){
+      if (P1.stillPlaying||P2.stillPlaying||P3.stillPlaying||P4.stillPlaying) {
+      if (P1.stillPlaying)
+      P1.playerTurn;
+      if (P2.stillPlaying)
+      P2.playerTurn;
+      if (P3.stillPlaying)
+      P3.playerTurn;
+      if (P4.stillPlaying)
+      P4.playerTurn;
+      }
+      //System.out.println ("Game Over");
+      }
+    */
 	
     public void move (Player playah, int spaces){
 	int prevLoc = playah.location;
@@ -148,18 +148,18 @@ public class Board {
 	Double = false;
 	
 	if (thing.jail){
-		if (die1 == die2) {
-			this.move(thing, roll);
-			thing.setJail= false;
-		}
-		else
-			thing.setJailCount;
-		if (thing.getJailCount() == 3){
-			thing.loseMoney(50);
-			this.move(thing, roll);
-			thing.setJail(false);
-		}
-		return;
+	    if (die1 == die2) {
+		this.move(thing, roll);
+		thing.setJail= false;
+	    }
+	    else
+		thing.setJailCount;
+	    if (thing.getJailCount() == 3){
+		thing.loseMoney(50);
+		this.move(thing, roll);
+		thing.setJail(false);
+	    }
+	    return;
 	}
 	
 	if (die1 == die2){
@@ -172,41 +172,116 @@ public class Board {
 	String toDo = currentLocation.getEvent();
 	
 	if (toDo.equals("Rent!")){
-	try{
+	    try{
 		thing.giveMoney(currentLocation.owner, currentLocation.currentRent);
-	}catch{}
-	if (toDo.equals("Buy?")){try{
-		//present prompt asking if they want to buy it
-		if (this.buyDialogue(currentLocation.name)){
+	    }catch{}
+	    if (toDo.equals("Buy?")){
+		try{
+		    //present prompt asking if they want to buy it
+		    if (this.buyDialogue(currentLocation.name)){
 			thing.buyProperty(currentLocation);
-		}}catch{}
-	}
-	if (toDo.equals("Income Tax")){
+		    }}
+		catch{}
+	    }
+	    if (toDo.equals("Income Tax")){
 		thing.loseMoney (200);
-	}
-	if (toDo.equals("Send Jail")){
+	    }
+	    if (toDo.equals("Send Jail")){
 		thing.setJail(true);
-	}
-	if (toDo.equals("Luxury Tax")){
+	    }
+	    if (toDo.equals("Luxury Tax")){
 		thing.loseMoney(75);
-	}
-	if (toDo.equals("Chance")){
+	    }
+	    if (toDo.equals("Chance")){
 		//display the string of chanceC[chanceNumber]
-		chanceNumber++;
-	}
-	if (toDo.equals("Community Chest")){
-		//display the string of communityC[communityNumber]
-		communityNumber++;
-	}
+	    	JOptionPane box = new JOptionPane();
+		int option = box.showMessageDialog(frame, chanceC [chancenum], "Chance Card", JOptionPane.PLAIN_MESSAGE);
+        
+		int c = chancenum;
+		if (c == 0)
+		    this.move(thing, 33);
+		if (c == 1) 
+		    this.move (thing, 17);
+		if (c == 2)
+		    this.move (thing, 5);
+		if (c == 3)
+		    this.move (thing, 8);
+		if (c == 4)
+		    thing.addMoney (150);
+		if (c == 5) 
+		    thing.addMoney (150);
+		if (c == 6)
+		    thing.addMoney (50);
+		if (c == 7)
+		    thing.addMoney (50);
+		if (c == 8) 
+		    thing.addMoney (50);
+		if (c == 9)
+		    thing.loseMoney (200);
+		if (c == 10)
+		    thing.loseMoney(100);
+		if (c == 11) 
+		    thing.loseMoney (15);
+		if (c == 12)
+		    this.move (thing, 38);
+		if (c == 13)
+		    thing.addMoney (50);
+		if (c == 14) 
+		    thing.loseMoney (50);
+		if (c == 15)
+		    thing.addMoney (150);
+		chancenum++;
+	    }
+	    if (toDo.equals("Community Chest")){
+		//display the string of communityC[communityNumber
+		//display the string of chanceC[chanceNumber]
+	    	JOptionPane box = new JOptionPane();
+		int option = box.showMessageDialog(frame, communityC [commnum], "Community Chest", JOptionPane.PLAIN_MESSAGE);
+        
+		int c = commnum;
+		if (c == 0)
+		    this.move(thing, 33);
+		if (c == 1) 
+		    thing.addMoney (75);
+		if (c == 2)
+		    thing.loseMoney (50);
+		if (c == 3)
+		    thing.loseMoney (50);
+		if (c == 4)
+		    thing.addMoney (50);
+		if (c == 5) 
+		    thing.addMoney (30);
+		if (c == 6)
+		    thing.addMoney (150);
+		if (c == 7)
+		    thing.addMoney (20);
+		if (c == 8) 
+		    thing.loseMoney (100);
+		if (c == 9)
+		    thing.loseMoney (50);
+		if (c == 10)
+		    thing.addMoney (25);
+		if (c == 11) 
+		    thing.loseMoney (200);
+		if (c == 12)
+		    this.addMoney (10);
+		if (c == 13)
+		    thing.addMoney (100);
+		if (c == 14) 
+		    thing.addMoney(50);
+		if (c == 15)
+		    thing.addMoney (100);
+		commnum++;
+	    }
 
 	
-	if (Double == true && doubleCount < 3)
-	    playerTurn (thing);
+	    if (Double == true && doubleCount < 3)
+		playerTurn (thing);
 
-	doubleCount=0;
+	    doubleCount=0;
 
-	//then add stuff for property management etc.
+	    //then add stuff for property management etc.
 	 
-    }
+	}
     
-}
+    }

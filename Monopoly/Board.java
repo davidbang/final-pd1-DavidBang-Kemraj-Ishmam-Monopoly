@@ -196,7 +196,7 @@ public class Board {
 	    if (toDo.equals("Chance")){
 		//display the string of chanceC[chanceNumber]
 	    	JOptionPane box = new JOptionPane();
-		int option = box.showMessageDialog(frame, chanceC [chancenum], "Chance Card", JOptionPane.PLAIN_MESSAGE);
+		int option = box.showMessageDialog(frame, chanceC [chanceNumber], "Chance Card", JOptionPane.PLAIN_MESSAGE);
         
 		int c = chanceNumber;
 		if (c == 0)
@@ -237,7 +237,7 @@ public class Board {
 		//display the string of communityC[communityNumber
 		//display the string of chanceC[chanceNumber]
 	    	JOptionPane box = new JOptionPane();
-		int option = box.showMessageDialog(frame, communityC [commnum], "Community Chest", JOptionPane.PLAIN_MESSAGE);
+		int option = box.showMessageDialog(frame, communityC [communityNumber], "Community Chest", JOptionPane.PLAIN_MESSAGE);
         
 		int c = communityNumber;
 		if (c == 0)

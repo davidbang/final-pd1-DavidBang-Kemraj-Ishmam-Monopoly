@@ -43,7 +43,19 @@ public class Player{
     public int getMoney() {
 	return this.money;
     }
-    
+	
+	public void setJail(boolean stat) {
+		jail = stat;
+	}
+	
+	public void setJailCount() {
+		jailCount++;
+	}
+
+    public int getJailCount() {
+		return jailCount;
+	}
+	
     public int numOfColourSet(String colour){
 	//returns the number of properties in a set that is held
 	int count = 0;

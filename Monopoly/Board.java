@@ -150,14 +150,14 @@ public class Board {
 	if (thing.jail){
 		if (die1 == die2) {
 			this.move(thing, roll);
-			thing.jail= false;
+			thing.setJail= false;
 		}
 		else
-			thing.jailCount += 1;
-		if (thing.jailCount == 3){
+			thing.setJailCount;
+		if (thing.getJailCount() == 3){
 			thing.loseMoney(50);
 			this.move(thing, roll);
-			thing.jail = false;
+			thing.setJail(false);
 		}
 		return;
 	}
@@ -174,7 +174,7 @@ public class Board {
 	if (toDo.equals("Rent!")){
 	try{
 		thing.giveMoney(currentLocation.owner, currentLocation.currentRent);
-	}}catch{}
+	}catch{}
 	if (toDo.equals("Buy?")){try{
 		//present prompt asking if they want to buy it
 		if (this.buyDialogue(currentLocation.name)){
@@ -185,7 +185,7 @@ public class Board {
 		thing.loseMoney (200);
 	}
 	if (toDo.equals("Send Jail")){
-		thing.jail = true;
+		thing.setJail(true);
 	}
 	if (toDo.equals("Luxury Tax")){
 		thing.loseMoney(75);

@@ -14,6 +14,8 @@ public class Board {
     public Board(String one, String t1, String two, String t2, String three, String t3, String four, String t4){
 	doubleCount = 0;
 	turns = 0;
+	chanceNumber = 0;
+	communityNumber = 0;
 
 	P1 = new Player(one, t1);
 	P2 = new Player(two, t2);
@@ -134,11 +136,57 @@ public class Board {
 	int roll = die1 + die2;
 	Double = false;
 	
+	if !(thing.jail){
+		if (die1 == die2) {
+			this.move(thing, roll);
+			thing.jail= false;
+		}
+		else
+			thing.jailCount ==;
+		if (thing.jailcount == 3){
+			thing.lose(50);
+			this.move(thing, roll);
+			thing.jail = false;
+		}
+		return;
+	}
+	
 	if (die1 == die2){
 	    Double = true;
 	    doubleCount ++;
 	}
 	this.move(thing, roll);
+	
+	currentLocation = board[(thing.location%40)];
+	String toDo = currentLocation.getEvent();
+	
+	if (toDo.equals("Rent!")){
+		thing.giveMoney(currentLocation.owner, currentLocation.currentRent);
+	}
+	/*	if (toDo.equals("Buy?"){
+		//present prompt asking if they want to buy it
+		//if (yes){
+			//thing.lose(currentLocation.startPrice);
+			//thing.props.add(currentLocation);
+		//}
+	}*/
+	if (toDo.equals("Income Tax")){
+		thing.lose (200);
+	}
+	if (toDo.equals("Send Jail")){
+		thing.jail = true;
+	}
+	if (toDo.equals("Luxury Tax")){
+		thing.lose(75);
+	}
+	if (toDo.equals("Chance")){
+		//display the string of chanceC[chanceNumber]
+		chanceNumber++;
+	}
+	if (toDo.equals("Community Chest")){
+		//display the string of communityC[communityNumber]
+		communityNumber++;
+	}
 
 	
 	if (Double == true && doubleCount < 3)

@@ -11,7 +11,7 @@ public class EventTile extends Tiles{
     }
     public String getEvent(){
 	if (eventName == "Go")
-	    return "Pass Go";
+	    return "Pass Go";//cash is handled in Board.playerTurn()
 	if (eventName == "C.C.")
 	    return "Community Chess";
 	if (eventName == "Income Tax")

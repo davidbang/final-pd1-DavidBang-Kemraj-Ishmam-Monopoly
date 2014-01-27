@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Player{
     protected String token, name;
-    protected int money, initRoll, order, location;
+    protected int money, initRoll, order, location, jailCount;
     protected ArrayList<Property> props;
     protected boolean jail, jailCard, stillPlaying;
     //also if they have a get out of jail card?
@@ -57,17 +57,14 @@ public class Player{
 
     public boolean buyProperty (Property land){
 	if (this.money < land.startPrice){
-	    this.loseMoney(land.startPrice);
+	return false;
+    }
+	else{ 
+		this.loseMoney(land.startPrice);
 	    props.add(land);
 	    land.owner = this;
 	    return true;
 	}
-	return false;
-    }
-	else{ 
-		land.owner = this;
-		props.add(land);
-		this.loseMoney(land.startPrice);
-	}
     
+}
 }

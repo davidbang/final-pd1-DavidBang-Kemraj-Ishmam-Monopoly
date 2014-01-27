@@ -16,7 +16,7 @@ public class Board {
 	public boolean buyDialogue(String name){
 		JOptionPane box = new JOptionPane();
 		int option = box.showConfirmDialog(null, "BUY", "Would you like to purchase " + name + "?", JOptionPane.YES_NO_OPTION);
-		box.dispose();
+		//box.dispose();
 		if (option == JOptionPane.YES_OPTION)
 			return true;
 		return false;
@@ -147,15 +147,15 @@ public class Board {
 	int roll = die1 + die2;
 	Double = false;
 	
-	if !(thing.jail){
+	if (thing.jail){
 		if (die1 == die2) {
 			this.move(thing, roll);
 			thing.jail= false;
 		}
 		else
-			thing.jailCount ==;
-		if (thing.jailcount == 3){
-			thing.lose(50);
+			thing.jailCount += 1;
+		if (thing.jailCount == 3){
+			thing.loseMoney(50);
 			this.move(thing, roll);
 			thing.jail = false;
 		}
@@ -168,26 +168,27 @@ public class Board {
 	}
 	this.move(thing, roll);
 	
-	currentLocation = board[(thing.location%40)];
+	Tiles currentLocation = board[(thing.location%40)];
 	String toDo = currentLocation.getEvent();
 	
 	if (toDo.equals("Rent!")){
+	try{
 		thing.giveMoney(currentLocation.owner, currentLocation.currentRent);
-	}
-	if (toDo.equals("Buy?"){
+	}}catch{}
+	if (toDo.equals("Buy?")){try{
 		//present prompt asking if they want to buy it
 		if (this.buyDialogue(currentLocation.name)){
 			thing.buyProperty(currentLocation);
-		}
+		}}catch{}
 	}
 	if (toDo.equals("Income Tax")){
-		thing.lose (200);
+		thing.loseMoney (200);
 	}
 	if (toDo.equals("Send Jail")){
 		thing.jail = true;
 	}
 	if (toDo.equals("Luxury Tax")){
-		thing.lose(75);
+		thing.loseMoney(75);
 	}
 	if (toDo.equals("Chance")){
 		//display the string of chanceC[chanceNumber]

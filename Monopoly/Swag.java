@@ -87,7 +87,7 @@ public class Swag implements ActionListener{
 	
     
 	public static void main(String[] args) {
-		public Board slate;
+		Board slate;
 		slate = new Board("one", "red", "two", "yellow", "three", "blue", "four", "green");
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {

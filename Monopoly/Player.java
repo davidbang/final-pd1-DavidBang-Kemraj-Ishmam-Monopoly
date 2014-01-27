@@ -44,17 +44,17 @@ public class Player{
 	return this.money;
     }
 	
-	public void setJail(boolean stat) {
-		jail = stat;
-	}
+    public void setJail(boolean stat) {
+	jail = stat;
+    }
 	
-	public void setJailCount() {
-		jailCount++;
-	}
+    public void setJailCount() {
+	jailCount++;
+    }
 
     public int getJailCount() {
-		return jailCount;
-	}
+	return jailCount;
+    }
 	
     public int numOfColourSet(String colour){
 	//returns the number of properties in a set that is held
@@ -69,14 +69,15 @@ public class Player{
 
     public boolean buyProperty (Property land){
 	if (this.money < land.startPrice){
-	return false;
-    }
+	    return false;
+	}
 	else{ 
-		this.loseMoney(land.startPrice);
+	    this.loseMoney(land.startPrice);
 	    props.add(land);
 	    land.owner = this;
 	    return true;
 	}
     
-}
+    }
 
+}

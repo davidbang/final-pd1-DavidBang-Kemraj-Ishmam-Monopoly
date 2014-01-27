@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Board {
+public class Board{ throws RuntimeException
     public Tiles [] board;
     private boolean play, Double;
     protected Player P1, P2, P3, P4;
@@ -154,7 +154,7 @@ public class Board {
 		thing.setJail (false);
 	    }
 	    else
-		thing.setJailCount;
+		thing.setJailCount();
 	    if (thing.getJailCount() == 3){
 		thing.loseMoney(50);
 		this.move(thing, roll);
@@ -173,16 +173,14 @@ public class Board {
 	String toDo = currentLocation.getEvent();
 	
 	if (toDo.equals("Rent!")){
-	    try{
-		thing.giveMoney(currentLocation.owner, currentLocation.currentRent);
-	    }catch{}
+	    thing.giveMoney(currentLocation.owner, currentLocation.currentRent);
 	    if (toDo.equals("Buy?")){
-   
+		
 		//present prompt asking if they want to buy it
 		if (this.buyDialogue(currentLocation.name)){
 		    thing.buyProperty(currentLocation);
 		}
-        
+		
 	    }
 	    if (toDo.equals("Income Tax")){
 		thing.loseMoney (200);

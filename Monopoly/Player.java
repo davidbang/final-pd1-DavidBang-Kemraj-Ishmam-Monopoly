@@ -56,7 +56,7 @@ public class Player{
     }
 
     public boolean buyProperty (Property land){
-	if (this.money >= land.startPrice){
+	if (this.money < land.startPrice){
 	    this.loseMoney(land.startPrice);
 	    props.add(land);
 	    land.owner = this;
@@ -64,5 +64,10 @@ public class Player{
 	}
 	return false;
     }
+	else{ 
+		land.owner = this;
+		props.add(land);
+		this.loseMoney(land.startPrice);
+	}
     
 }

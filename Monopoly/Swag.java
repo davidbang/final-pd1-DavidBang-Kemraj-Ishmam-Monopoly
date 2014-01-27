@@ -76,19 +76,23 @@ public class Swag implements ActionListener{
     }
     
 	public void actionPerformed(ActionEvent e){
-		if ("roll".equals(e.getActionCommand()){
-			board.turns ++;
-			board.playerTurn(board.currentPlayer());
+		if ("roll".equals(e.getActionCommand())){
+			slate.turns ++;
+			slate.playerTurn(slate.currentPlayer());
 			//automatically moves to next player
 			// graphically move the player on the GUI???
 		}
 	}
-    public static void main(String[] args) {
-	Board board = new Board("one", "red", "two", "yellow", "three", "blue", "four", "green");
-	javax.swing.SwingUtilities.invokeLater(new Runnable() {
-		public void run() {
-		    createAndShowGUI();
-		}
- 	});
+	
+	
+    
+	public static void main(String[] args) {
+		public Board slate;
+		slate = new Board("one", "red", "two", "yellow", "three", "blue", "four", "green");
+		javax.swing.SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				createAndShowGUI();
+			}
+		});
     }
 }

@@ -1,5 +1,8 @@
 import java.util.*;
 import java.io.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Board {
     public Tiles [] board;
@@ -10,6 +13,14 @@ public class Board {
     private int doubleCount, chanceNumber, communityNumber;
 	public int turns;
     
+	public boolean buyDialogue(String name){
+		JOptionPane box = new JOptionPane();
+		int option = box.showConfirmDialog(null, "BUY", "Would you like to purchase " + name + "?", JOptionPane.YES_NO_OPTION);
+		box.dispose();
+		if (option == JOptionPane.YES_OPTION)
+			return true;
+		return false;
+	}
     
     public Board(String one, String t1, String two, String t2, String three, String t3, String four, String t4){
 	doubleCount = 0;
@@ -163,13 +174,12 @@ public class Board {
 	if (toDo.equals("Rent!")){
 		thing.giveMoney(currentLocation.owner, currentLocation.currentRent);
 	}
-	/*	if (toDo.equals("Buy?"){
+	if (toDo.equals("Buy?"){
 		//present prompt asking if they want to buy it
-		//if (yes){
-			//thing.lose(currentLocation.startPrice);
-			//thing.props.add(currentLocation);
-		//}
-	}*/
+		if (this.buyDialogue(currentLocation.name)){
+			thing.buyProperty(currentLocation);
+		}
+	}
 	if (toDo.equals("Income Tax")){
 		thing.lose (200);
 	}

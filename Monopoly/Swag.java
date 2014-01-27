@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Swag {
+public class Swag implements ActionListener{
    
     public static void addComponentsToPane(Container pane) {
 	
@@ -33,7 +33,7 @@ public class Swag {
 		String imgLocation = "images/" + imgName + ".jpg";
 				
 		//creating and initializing the button
-		JButton butt = new JButton();
+		JButton butt = new JButton();//lol buttocks
 		butt.setActionCommand(actionCommand);
 		butt.setToolTipText(toolTipText);
 		//button.addActionListener(this);
@@ -50,11 +50,13 @@ public class Swag {
 		
 		//second button - properties
 		tbb = makeButton("prop", "checkProp", "Check a Property/Attribute");
-		ToolB.add(tbb);
+		ToolB.add(tbb);//What should this do? - Kemraj
 		
 		//third button - player attributes
 		tbb = makeButton("player", "checkPlayer", "Check a Player");
-		ToolB.add(tbb);
+		ToolB.add(tbb);//What should this do? - Kemraj
+		
+		//Don't know what to do for those two buttons above. - Kemraj
 		
 		
 	}
@@ -73,7 +75,16 @@ public class Swag {
         frame.setVisible(true);
     }
     
+	public void actionPerformed(ActionEvent e){
+		if ("roll".equals(e.getActionCommand()){
+			board.turns ++;
+			board.playerTurn(board.currentPlayer());
+			//automatically moves to next player
+			// graphically move the player on the GUI???
+		}
+	}
     public static void main(String[] args) {
+	Board board = new Board("one", "red", "two", "yellow", "three", "blue", "four", "green");
 	javax.swing.SwingUtilities.invokeLater(new Runnable() {
 		public void run() {
 		    createAndShowGUI();

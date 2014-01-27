@@ -8,10 +8,12 @@ public class Board {
     protected String [] chanceC, communityC;
     protected Cards deck;
     private int doubleCount, chanceNumber, communityNumber;
+	public int turns;
     
     
     public Board(String one, String t1, String two, String t2, String three, String t3, String four, String t4){
 	doubleCount = 0;
+	turns = 0;
 
 	P1 = new Player(one, t1);
 	P2 = new Player(two, t2);
@@ -81,6 +83,16 @@ public class Board {
     
     }
     
+	public Player currentPlayer(){
+		if (turns%4 == 1)
+			return P1;
+		if (turns%4 == 2)
+			return P2;
+		if (turns%4 == 3)
+			return P3;
+		else
+			return P4;
+	}
     
     
     public int rollDie () {
@@ -91,6 +103,7 @@ public class Board {
 	//a.changelocation();
     }
     
+	/*
     public void playGame (){
 	if (P1.stillPlaying||P2.stillPlaying||P3.stillPlaying||P4.stillPlaying) {
 	    if (P1.stillPlaying)
@@ -104,7 +117,8 @@ public class Board {
 	}
 	//System.out.println ("Game Over");
     }
-
+	*/
+	
     public void move (Player playah, int spaces){
 	int prevLoc = playah.location;
 	playah.location = playah.location + spaces;

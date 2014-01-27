@@ -63,9 +63,11 @@ public class Swag implements ActionListener{
 	
        private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("Monopoly");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JFrame frame = new JFrame();
+	frame.setTitle("Monopoly");
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Set up the content pane.
+
         addComponentsToPane(frame.getContentPane());
 		
         //Size and display the window.
@@ -87,12 +89,12 @@ public class Swag implements ActionListener{
 	
     
 	public static void main(String[] args) {
-		Board slate;
-		slate = new Board("one", "red", "two", "yellow", "three", "blue", "four", "green");
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				createAndShowGUI();
-			}
+	    new Swag ();
+	    Board slate = new Board("one", "red", "two", "yellow", "three", "blue", "four", "green");
+	    javax.swing.SwingUtilities.invokeLater(new Runnable() {
+		    public void run() {
+			createAndShowGUI();
+		    }
 		});
     }
 }

@@ -12,6 +12,7 @@ public class Board {
     protected Cards deck;
     private int doubleCount, chanceNumber, communityNumber;
     public int turns;
+   
     
     public boolean buyDialogue(String name){
 	JOptionPane box = new JOptionPane();
@@ -150,7 +151,7 @@ public class Board {
 	if (thing.jail){
 	    if (die1 == die2) {
 		this.move(thing, roll);
-		thing.setJail= false;
+		thing.setJail (false);
 	    }
 	    else
 		thing.setJailCount;
@@ -159,7 +160,7 @@ public class Board {
 		this.move(thing, roll);
 		thing.setJail(false);
 	    }
-	    return;
+	    
 	}
 	
 	if (die1 == die2){
@@ -176,12 +177,12 @@ public class Board {
 		thing.giveMoney(currentLocation.owner, currentLocation.currentRent);
 	    }catch{}
 	    if (toDo.equals("Buy?")){
-		try{
-		    //present prompt asking if they want to buy it
-		    if (this.buyDialogue(currentLocation.name)){
-			thing.buyProperty(currentLocation);
-		    }}
-		catch{}
+   
+		//present prompt asking if they want to buy it
+		if (this.buyDialogue(currentLocation.name)){
+		    thing.buyProperty(currentLocation);
+		}
+        
 	    }
 	    if (toDo.equals("Income Tax")){
 		thing.loseMoney (200);
@@ -197,7 +198,7 @@ public class Board {
 	    	JOptionPane box = new JOptionPane();
 		int option = box.showMessageDialog(frame, chanceC [chancenum], "Chance Card", JOptionPane.PLAIN_MESSAGE);
         
-		int c = chancenum;
+		int c = chanceNumber;
 		if (c == 0)
 		    this.move(thing, 33);
 		if (c == 1) 
@@ -230,7 +231,7 @@ public class Board {
 		    thing.loseMoney (50);
 		if (c == 15)
 		    thing.addMoney (150);
-		chancenum++;
+		chanceNumber++;
 	    }
 	    if (toDo.equals("Community Chest")){
 		//display the string of communityC[communityNumber
@@ -238,7 +239,7 @@ public class Board {
 	    	JOptionPane box = new JOptionPane();
 		int option = box.showMessageDialog(frame, communityC [commnum], "Community Chest", JOptionPane.PLAIN_MESSAGE);
         
-		int c = commnum;
+		int c = communityNumber;
 		if (c == 0)
 		    this.move(thing, 33);
 		if (c == 1) 
@@ -271,7 +272,7 @@ public class Board {
 		    thing.addMoney(50);
 		if (c == 15)
 		    thing.addMoney (100);
-		commnum++;
+		communityNumber++;
 	    }
 
 	

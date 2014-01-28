@@ -56,27 +56,29 @@ public class ConnectFourBoard{
 		while (i != 0 && i != 1 && i != 2 && i != 3 && i != 4 && i != 5 && i != 6){
 		    System.out.println("Choose a column number " + Player1);
 		    try{ 
-				i = input.nextInt();
-				}
-			catch (InputMismatchException e) {
-				System.out.println("Please enter a valid column number");
-				} 
-			move(Pl1, i);
+			i = Integer.parseInt(input.nextLine());
+		    }
+		    catch (Exception e) {
+			System.out.println("Please enter a valid column number");
+		    }
+		}
+		move(Pl1, i);
+		
 	    }
-	}
 	    else{
-			while (i != 0 && i != 1 && i != 2 && i != 3 && i != 4 && i != 5 && i != 6){
-				System.out.println("Choose a column number " + Player2);
-				try{ 
-				i = input.nextInt();
-				}
-				catch (InputMismatchException e) {
-				System.out.println("Please enter a valid column number");
-				}
-				move(Pl2, i);
+		while (i != 0 && i != 1 && i != 2 && i != 3 && i != 4 && i != 5 && i != 6){
+		    System.out.println("Choose a column number " + Player2);
+		    try{ 
+			i = Integer.parseInt(input.nextLine());
+		    }
+		    catch (Exception e) {
+			System.out.println("Please enter a valid column number");
+		    }
+		} 
+		move(Pl2, i);
 			
-		}
-		}
+		
+	    }
 	    go1 = !go1;	    
 	}
     }

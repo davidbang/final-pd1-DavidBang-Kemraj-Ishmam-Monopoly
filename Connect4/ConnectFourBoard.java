@@ -55,30 +55,31 @@ public class ConnectFourBoard{
 	    if (go1){
 		while (i != 0 && i != 1 && i != 2 && i != 3 && i != 4 && i != 5 && i != 6){
 		    System.out.println("Choose a column number " + Player1);
-		    i = input.nextInt();
-		}
-		try { move(Pl1, i);
+		    try{ 
+				i = input.nextInt();
 				}
 			catch (InputMismatchException e) {
 				System.out.println("Please enter a valid column number");
 				} 
+			move(Pl1, i);
 	    }
+	}
 	    else{
 			while (i != 0 && i != 1 && i != 2 && i != 3 && i != 4 && i != 5 && i != 6){
 				System.out.println("Choose a column number " + Player2);
+				try{ 
 				i = input.nextInt();
 				}
-			
-			try { move(Pl2, i);
-				}
-			catch (InputMismatchException e) {
+				catch (InputMismatchException e) {
 				System.out.println("Please enter a valid column number");
-				} 
+				}
+				move(Pl2, i);
+			
+		}
 		}
 	    go1 = !go1;	    
 	}
-	}
-    
+    }
 
     public String board2String(char[][] array2D){
 	String output = "";

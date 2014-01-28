@@ -30,8 +30,8 @@ public class ConnectFourBoard{
     public boolean move(char player, int col){
 	boolean fails = true;
 	int row = 0;
-	while (fails && (rows<7)){
-	    if (this.board[row][col]==null){
+	while (fails && (row<7)){
+	    if (this.board[row][col]=='-'){
 		aidMove(player, row, col);
 		fails = false;
 	    }
@@ -52,12 +52,12 @@ public class ConnectFourBoard{
 	    System.out.println(board2String(board));
 	    if (go1){
 		System.out.println("Choose a column number " + Player1);
-		i = input.nextInt();
+		int i = input.nextInt();
 		move(Pl1, i);
 	    }
 	    else{
 		System.out.println("Choose a column number " + Player2);
-		i = input.nextInt();
+		int i = input.nextInt();
 		move(Pl2, i);
 	    }
 	    go1 = !go1;	    

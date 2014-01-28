@@ -13,6 +13,7 @@ public class ConnectFourBoard{
 	Player1 = P1;
 	Player2 = P2;
 	this.board = new char [6][7];
+	play = true;
 	go1 = true;
 	Pl1 = 'X';
 	Pl2 = 'O';
@@ -72,8 +73,8 @@ public class ConnectFourBoard{
 	    }
 	    output = output + "\n";
 	}
-	for (int i = 0; i <array2D[i].length; i++){
-	    output = output + i + " ";
+	for (int h = 0; h <array2D[1].length; h++){
+	    output = output + h + " ";
 	}
 	return output;
     }

@@ -85,9 +85,189 @@ public class Board2{
 	}
     }
 
-     public int rollDie () {
+    public int rollDie () {
 	Random R = new Random ();
 	return R.nextInt (6) + 1;
-     }
+    }
     
+    public Player currentPlayer(){
+	if (turns%4 == 1)
+	    return P1;
+	if (turns%4 == 2)
+	    return P2;
+	if (turns%4 == 3)
+	    return P3;
+	else
+	    return P4;
+    }
+
+    public void move (Player playah, int spaces){
+	int prevLoc = playah.location;
+	playah.location = playah.location + spaces;
+	if (playah.location%40 <prevLoc%40)//if passed GO
+	    playah.addMoney(200);
+	board[playah.location%40].getEvent();	
+    }
+
+    public boolean buyDialogue(String name){
+	JOptionPane box = new JOptionPane();
+	int option = box.showConfirmDialog(null, "BUY", "Would you like to purchase " + name + "?", JOptionPane.YES_NO_OPTION);
+	//box.dispose();
+	if (option == JOptionPane.YES_OPTION)
+	    return true;
+	return false;
+    }
+
+
+    public void playerTurn (Player thing){
+	int die1 = rollDie();
+	int die2 = rollDie();
+	int roll = die1 + die2;
+	Double = false;
+	
+	if (thing.jail){
+	    if (die1 == die2) {
+		this.move(thing, roll);
+		thing.setJail (false);
+	    }
+	    else
+		thing.setJailCount();
+	    if (thing.getJailCount() == 3){
+		thing.loseMoney(50);
+		this.move(thing, roll);
+		thing.setJail(false);
+	    }
+	    
+	}
+	
+	if (die1 == die2){
+	    Double = true;
+	    doubleCount ++;
+	}
+	this.move(thing, roll);
+	
+	if ((board[(thing.location%40)].getClass())==(Property.class)){
+
+	    Property currentLocation = (Property) board[(thing.location%40)];
+	    String toDo = currentLocation.getEvent();
+	
+	    if (toDo.equals("Rent!")){
+		thing.giveMoney(currentLocation.owner, currentLocation.currentRent);
+	    }
+	    if (toDo.equals("Buy?")){
+	    
+		//present prompt asking if they want to buy it
+		if (this.buyDialogue(currentLocation.name)){
+		    thing.buyProperty(currentLocation);
+		}
+	    
+	    }
+	}
+	else{
+	     EventTile currentLocation = (EventTile) board[(thing.location%40)];
+	    String toDo = currentLocation.getEvent();
+	
+	    
+	    if (toDo.equals("Income Tax")){
+		thing.loseMoney (200);
+	    }
+	    if (toDo.equals("Send Jail")){
+		thing.setJail(true);
+	    }
+	    if (toDo.equals("Luxury Tax")){
+		thing.loseMoney(75);
+	    }
+	    if (toDo.equals("Chance")){
+		//display the string of chanceC[chanceNumber]
+		JOptionPane box = new JOptionPane();
+		box.showMessageDialog(null, chanceC [chanceNumber], "Chance Card", JOptionPane.PLAIN_MESSAGE);
+	    
+		int c = chanceNumber;
+		if (c == 0)
+		    this.move(thing, 33);
+		if (c == 1) 
+		    this.move (thing, 17);
+		if (c == 2)
+		    this.move (thing, 5);
+		if (c == 3)
+		    this.move (thing, 8);
+		if (c == 4)
+		    thing.addMoney (150);
+		if (c == 5) 
+		    thing.addMoney (150);
+		if (c == 6)
+		    thing.addMoney (50);
+		if (c == 7)
+		    thing.addMoney (50);
+		if (c == 8) 
+		    thing.addMoney (50);
+		if (c == 9)
+		    thing.loseMoney (200);
+		if (c == 10)
+		    thing.loseMoney(100);
+		if (c == 11) 
+		    thing.loseMoney (15);
+		if (c == 12)
+		    this.move (thing, 38);
+		if (c == 13)
+		    thing.addMoney (50);
+		if (c == 14) 
+		    thing.loseMoney (50);
+		if (c == 15)
+		    thing.addMoney (150);
+		chanceNumber++;
+	    }
+	    if (toDo.equals("Community Chest")){
+		//display the string of communityC[communityNumber
+		//display the string of chanceC[chanceNumber]
+		JOptionPane box = new JOptionPane();
+		box.showMessageDialog(null, communityC [communityNumber], "Community Chest", JOptionPane.PLAIN_MESSAGE);
+        
+		int c = communityNumber;
+		if (c == 0)
+		    this.move(thing, 33);
+		if (c == 1) 
+		    thing.addMoney (75);
+		if (c == 2)
+		    thing.loseMoney (50);
+		if (c == 3)
+		    thing.loseMoney (50);
+		if (c == 4)
+		    thing.addMoney (50);
+		if (c == 5) 
+		    thing.addMoney (30);
+		if (c == 6)
+		    thing.addMoney (150);
+		if (c == 7)
+		    thing.addMoney (20);
+		if (c == 8) 
+		    thing.loseMoney (100);
+		if (c == 9)
+		    thing.loseMoney (50);
+		if (c == 10)
+		    thing.addMoney (25);
+		if (c == 11) 
+		    thing.loseMoney (200);
+		if (c == 12)
+		    thing.addMoney (10);
+		if (c == 13)
+		    thing.addMoney (100);
+		if (c == 14) 
+		    thing.addMoney(50);
+		if (c == 15)
+		    thing.addMoney (100);
+		communityNumber++;
+	    }
+
+	
+	    if (Double == true && doubleCount < 3)
+		playerTurn (thing);
+
+	    doubleCount=0;
+
+	    //then add stuff for property management etc.
+	 
+	}
+	
+    }
 }

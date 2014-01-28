@@ -96,4 +96,15 @@ public class ConnectFourBoard{
 	}
 	return output;
     }
+
+    public boolean horizontalCheck(char Pl){
+	for (int i= board.length-1;i>0; i--){
+	    for (int j =0; j<4; j++){
+		if (board[i][j]== Pl && board[i][j+1]== Pl && board[i][j+2]== Pl && board[i][j+3]== Pl){
+		    return true;
+		}
+	    }
+	}
+	return false;
+    }
 }

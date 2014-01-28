@@ -4,7 +4,7 @@ import java.util.*;
 public class ConnectFourBoard{
     public boolean go1, play;
     public char [][] board;
-    public int MoveRow, MoveCol, row;
+    public int MoveRow, MoveCol, row, i;
     public String Player1, Player2;
     public Scanner input;
     public char Pl1, Pl2;
@@ -48,17 +48,22 @@ public class ConnectFourBoard{
     public void Play_Game(){
 	input = new Scanner(System.in);
 	while (play){
+	    i = -1;
 	    System.out.println("_________________________________________________________________________________________________");
 	    System.out.println("Current Board:");
 	    System.out.println(board2String(board));
 	    if (go1){
-		System.out.println("Choose a column number " + Player1);
-		int i = input.nextInt();
+		while (i != 0 && i != 1 && i != 2 && i != 3 && i != 4 && i != 5 && i != 6){
+		    System.out.println("Choose a column number " + Player1);
+		    i = input.nextInt();
+		}
 		move(Pl1, i);
 	    }
 	    else{
-		System.out.println("Choose a column number " + Player2);
-		int i = input.nextInt();
+		while (i != 0 && i != 1 && i != 2 && i != 3 && i != 4 && i != 5 && i != 6){
+		    System.out.println("Choose a column number " + Player2);
+		    i = input.nextInt();
+		}
 		move(Pl2, i);
 	    }
 	    go1 = !go1;	    
@@ -67,7 +72,7 @@ public class ConnectFourBoard{
 
     public String board2String(char[][] array2D){
 	String output = "";
-	for (int i=0; i <array2D.length;i++){
+	for (int i=array2D.length-1; i >-1;i--){
 	    for (int j=0; j<array2D[i].length;j++){
 		output = output + array2D[i][j] + " ";
 	    }

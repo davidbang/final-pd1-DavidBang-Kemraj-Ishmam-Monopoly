@@ -14,16 +14,16 @@ public class Board2{
     private int doubleCount, chanceNumber, communityNumber;
     public int turns;
 
-    public Board2(String one, String t1, String two, String t2, String three, String t3, String four, String t4){
+    public Board2(){
 	doubleCount = 0;
 	turns = 0;
 	chanceNumber = 0;
 	communityNumber = 0;
 	
-	P1 = new Player(one, t1);
-	P2 = new Player(two, t2);
-	P3 = new Player(three, t3);
-	P4 = new Player(four, t4);
+	P1 = new Player("one", "t1");
+	P2 = new Player("two", "t2");
+	P3 = new Player("three", "t3");
+	P4 = new Player("four", "t4");
 	
 	playerList.add(P1);
 	playerList.add(P2);

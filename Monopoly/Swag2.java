@@ -2,7 +2,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Swag2{// implements ActionListener{
+public class Swag2 implements ActionListener{
+    public Board2 slate = new Board2("one", "red", "two", "yellow", "three", "blue", "four", "green");
    
     public static void addComponentsToPane(Container pane) {
 	
@@ -74,9 +75,20 @@ public class Swag2{// implements ActionListener{
                       680 + insets.top + insets.bottom);
         frame.setVisible(true);
     }
+    
+    public void actionPerformed(ActionEvent e){
+	if ("roll".equals(e.getActionCommand())){
+	    slate.turns ++;
+	    slate.playerTurn(slate.currentPlayer());
+	    //automatically moves to next player
+	    System.out.println("GUI ACTION");
+	    // graphically move the player on the GUI???
+	}
+    }
+
     public static void main(String[] args) {
-	new Swag2 ();
-	//	Board2 slate = new Board2("one", "red", "two", "yellow", "three", "blue", "four", "green");
+	//new Swag2 ();
+	//public Board2 slate = new Board2("one", "red", "two", "yellow", "three", "blue", "four", "green");
 	javax.swing.SwingUtilities.invokeLater(new Runnable() {
 		public void run() {
 		    createAndShowGUI();

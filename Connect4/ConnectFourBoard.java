@@ -115,9 +115,9 @@ public class ConnectFourBoard{
 	for (int i = 5 ; i > 3 ; i--) {
 		for (int j = 0; j < 7; j++){
 			if (board[i][j]== icon && 
-				board[i+1][j]== icon && 
-				board[i+2][j]== icon && 
-				board[i+3][j]== icon){
+				board[i-1][j]== icon && 
+				board[i-2][j]== icon && 
+				board[i-3][j]== icon){
 					return true;
 				}
 		}	
@@ -129,9 +129,9 @@ public class ConnectFourBoard{
 	for (int i = 5 ; i > 3 ; i--) {
 		for (int j = 0; j < 4; j++){
 			if (board[i][j]== icon && 
-				board[i+1][j+1]== icon && 
-				board[i+2][j+2]== icon && 
-				board[i+3][j+3]== icon){
+				board[i-1][j+1]== icon && 
+				board[i-2][j+2]== icon && 
+				board[i-3][j+3]== icon){
 					return true;
 				}
 		}	
@@ -141,11 +141,11 @@ public class ConnectFourBoard{
 	
 	public boolean diagonalCheckLeft(char icon) {
 	for (int i = 5 ; i > 3 ; i--) {
-		for (int j = 6; j > 4; j++){
+		for (int j = 6; j > 2; j++){
 			if (board[i][j]== icon && 
-				board[i+1][j-1]== icon && 
-				board[i+2][j-2]== icon && 
-				board[i+3][j-3]== icon){
+				board[i-1][j-1]== icon && 
+				board[i-2][j-2]== icon && 
+				board[i-3][j-3]== icon){
 					return true;
 				}
 		}	

@@ -25,29 +25,34 @@ public class Gui implements ActionListener{
 
     public Gui()
     {
-	Player1 = " ";
-	Player2 = " ";
 
         JOptionPane pane = new JOptionPane ();
 
+	try{
 
         Player1 =  pane.showInputDialog("Enter name for Player1:");
-
         pane.setVisible (true);
-
-	if (Player1.equals(" ")) {
+	if (Player1.equals ("")){
+		System.exit (0);
+	    }
+	}
+	catch  (Exception NullPointerException) {
 	    System.exit (0);
 	}
 
 
         JOptionPane pane2 = new JOptionPane ();
 
-
+	try{
         Player2 =  pane2.showInputDialog("Enter name for Player2:");
-     
+    
 	pane2.setVisible (true);
 
-	if (Player2.equals(" ")) {
+	if (Player1.equals ("")){
+		System.exit (0);
+	    }
+}
+	catch (Exception NullPointerException) {
 	    System.exit (0);
 	}
 

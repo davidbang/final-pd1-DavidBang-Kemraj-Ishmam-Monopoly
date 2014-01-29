@@ -1,6 +1,12 @@
 import java.io.*;
 import java.util.*;
 
+/* 
+	Used in the terminal version. 
+	Does not work due to functions used being commented out in ConnectFourBoard.java
+
+*/
+
 public class Driver{
 
 	public static void main (String[] args){

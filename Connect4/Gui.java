@@ -13,6 +13,14 @@ public class Gui implements ActionListener{
 
     public Gui()
     {
+	JOptionPane pane = new JOptionPane ();
+	String Player =  pane.showInputDialog(this 
+					      ,"Enter names for Players in this format (Player1, Player2):");
+
+	pane.setVisible (true);
+
+	//	ConnectFourBoard board = new ConnectFourBoard ();
+
         JFrame guiFrame = new JFrame();
        
         guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,7 +53,7 @@ public class Gui implements ActionListener{
     }
 	 @Override 
 	 public void actionPerformed (ActionEvent e) {
-	     // button.setIcon (icon)
+	     //slot.setBackground(Color.Red);
 	 }
     
 }

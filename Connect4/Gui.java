@@ -28,7 +28,7 @@ public class Gui implements ActionListener{
 
         String Player2 =  pane2.showInputDialog("Enter name for Player2:");
      
-	pane2.setVisible (true);
+		pane2.setVisible (true);
 
         ConnectFourBoard board = new ConnectFourBoard (Player1 , Player2);
 

@@ -177,7 +177,8 @@ public class Gui implements ActionListener{
 	    else {
 		System.exit (0);
 	    }
-	if (board.getMoves() >=42) {
+	}
+	if (board.getMoves() >= 42) {
 			n = JOptionPane.showConfirmDialog(null, "It's a draw! Play Again?", "DRAW!", JOptionPane.YES_NO_OPTION);
 			if (n == 0) {
 			reset();
@@ -188,6 +189,5 @@ public class Gui implements ActionListener{
         }
 
 	}
-    }
-
 }
+

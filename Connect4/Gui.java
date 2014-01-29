@@ -119,15 +119,6 @@ public class Gui implements ActionListener{
 	
 	toolbar.add (display);
 	toolbar.add (display2);
-	
-
-
-        // set it to some image of a connect 4 piece, maybe put in action listener
-        //ImageIcon icon = new    ImageIcon(this.getClass().getResource("/imagesg"));
-        //slot.setIcon(icon);
-
-
-
 
         guiFrame.getContentPane().add(panel, BorderLayout.CENTER);
 	guiFrame.getContentPane().add(toolbar, BorderLayout.PAGE_START);

@@ -5,6 +5,10 @@ public class myJButton extends JButton {
 	private int row;
 	private int col; 
 	
+	public myJButton(){
+		super();
+	}
+	
 	public myJButton(int r, int c) {
 		super();
 		row = r;

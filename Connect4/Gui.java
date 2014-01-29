@@ -22,14 +22,14 @@ public class Gui implements ActionListener{
 	board = new ConnectFourBoard (Player1,Player2);
     }
 
-	public JButton makeButton(String imgName,
+	public myJButton makeButton(String imgName,
 								String actionCommand,
 								String toolTipText) {
 		//look for the image
 		String imgLocation = "images/" + imgName + ".jpg";
 				
 		//creating and initializing the button
-		JButton button = new JButton();
+		myJButton button = new myJButton();
 		button.setActionCommand(actionCommand);
 		button.setToolTipText(toolTipText);
 		button.addActionListener(this);
@@ -137,6 +137,9 @@ public class Gui implements ActionListener{
                         break;
 				    }
 				}
+		}
+		if (e.getActionCommand().equals("New game")) {
+			reset();
 		}
 		int n = - 1;
 		if( board.checkAll ('X')) {

@@ -1,5 +1,14 @@
 import javax.swing.JButton;
 
+/* 
+	This class was developed solely for the GUI. 
+	There was a need to check which column the player was placing a piece in
+	Thus by extending JButton, it gains the functionality of JButton,
+	While also giving freedom to add convenient variables.
+	
+	This was just to give each button a coordinate in the Connect4 grid.
+*/
+
 public class myJButton extends JButton {
 
 	private int row;

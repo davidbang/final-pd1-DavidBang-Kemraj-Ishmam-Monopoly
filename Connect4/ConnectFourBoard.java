@@ -10,6 +10,10 @@ public class ConnectFourBoard{
     public char Pl1, Pl2;
 	private int moves;
     
+	/* Creates a 2D array as the connect Four board. 
+		This board is referred to and acted upon in the GUI
+		When making an action in the GUI, it is reflected in the 2D array	
+	*/ 
     public ConnectFourBoard(String P1, String P2){
 	Player1 = P1;
 	Player2 = P2;
@@ -20,20 +24,8 @@ public class ConnectFourBoard{
 	Pl2 = 'O';
 	setBoard();
     }
-
-	public int getMoves() {
-		return moves;
-	}
 	
-	public String getPlayer() {
-		if (go1) {
-			return Player1;
-			}
-		else {
-			return Player2;
-		}
-	}
-	
+	//This sets up the board with all empty spaces
     public void setBoard(){
 	for (int i=0; i<board.length; i++){
 	    for (int j=0; j<board[i].length; j++){
@@ -41,12 +33,18 @@ public class ConnectFourBoard{
 	    }
 	}
     }
-
+	
+	//this is utilized to place a piece on the board
     public void aidMove(char player, int row, int col){
         this.board[row][col]=player;
 		moves++;
     } 
     
+	/* 
+	Prototype method
+	This was to place pieces on the board, but was not utilized later
+	
+	
     public boolean move(char player, int col){
 	boolean fails = true;
 	int row = 0;
@@ -61,9 +59,12 @@ public class ConnectFourBoard{
 	return !fails;
     }
 
+    */ 
     
-    
-    //We have to implement GUI input or Scanners to get the user decisions.
+    /* 
+		This was used in terminal versions of the Connect4, during testing.
+		Rendered useless by the implementation of the GUI.
+	
     public void Play_Game(){
 	input = new Scanner(System.in);
 	while (play){
@@ -120,7 +121,13 @@ public class ConnectFourBoard{
 	}
 	System.out.println(board2String(board));
     }
+	
+	*/
 
+	/* 
+		Returned the board in a string.
+		Again, rendered useless by the implementation of the GUI
+	
     public String board2String(char[][] array2D){
 	String output = "";
 	for (int i=array2D.length-1; i >-1;i--){
@@ -134,8 +141,18 @@ public class ConnectFourBoard{
 	}
 	return output;
     }
+	
+	*/
 
-    private boolean horizontalCheck(char icon){
+	
+	/* 
+		This checks all slots in the board
+		to see if there are 4 consecutive chars 
+		that are the same horizontally
+		I.e = if someone won horizontally
+	*/
+
+	private boolean horizontalCheck(char icon){
 	for (int i= board.length-1;i>0; i--){
 	    for (int j =0; j<4; j++){
 			if (board[i][j]== icon && 
@@ -148,8 +165,15 @@ public class ConnectFourBoard{
 	}
 	return false;
     }
-	
-    private boolean verticalCheck(char icon) {
+
+	/* 
+		This checks all slots in the board
+		to see if there are 4 consecutive chars 
+		that are the same vertically
+		I.e = if someone won vertically
+	*/
+    
+	private boolean verticalCheck(char icon) {
 	for (int i = 5 ; i > 2 ; i--) {
 	    for (int j = 0; j < 7; j++){
 		if (board[i][j]== icon && 
@@ -163,7 +187,14 @@ public class ConnectFourBoard{
 	return false;
     }
 	
-    private boolean diagonalCheckRight(char icon) {
+	/* 
+		This checks all slots in the board
+		to see if there are 4 consecutive chars
+		that are the same diagonally towards the top-right
+		I.e = if someone won diagonally
+	*/
+    
+	private boolean diagonalCheckRight(char icon) {
 	for (int i = 5 ; i > 2 ; i--) {
 	    for (int j = 0; j < 4; j++){
 		if (board[i][j]== icon && 
@@ -176,6 +207,13 @@ public class ConnectFourBoard{
 	}
 	return false;
     }
+	
+	/* 
+		This checks all slots in the board
+		to see if there are 4 consecutive chars
+		that are the same diagonally towards the top-left
+		I.e = if someone won diagonally
+	*/
 	
     private boolean diagonalCheckLeft(char icon) {
 	for (int i = 5 ; i > 2 ; i--) {
@@ -191,15 +229,54 @@ public class ConnectFourBoard{
 	return false;
     }
 
+	
+	/* 
+		This utilizes the previous four functions 
+		to check if anybody won at all
+	*/
+	
     public boolean checkAll(char icon){
-	return (horizontalCheck(icon)||verticalCheck(icon)||diagonalCheckRight(icon)||diagonalCheckLeft(icon));	
+	return (horizontalCheck(icon)||
+			verticalCheck(icon)||
+			diagonalCheckRight(icon)||
+			diagonalCheckLeft(icon));	
     }
+	
+	/* 
+		Returns true if PlayerOne's turn,
+		False otherwise -
+		Used to check whose turn
+	*/
 	
 	public boolean isPlayerOneTurn() {
 		return go1;
 	}
 	
+	/* 
+		Switches the turns -
+		Used at the end of each turn 
+		for next move sequence
+	*/
+	
 	public void swapTurns(){
 		go1 = !go1;
 	}
+
+	/* 
+		basic get functions for use
+	*/ 
+	
+	public int getMoves() {
+		return moves;
+	}
+	
+	public String getPlayer() {
+		if (go1) {
+			return Player1;
+			}
+		else {
+			return Player2;
+		}
+	}
+	
 }

@@ -7,7 +7,7 @@ public class Gui implements ActionListener{
     private JButton[] []slot = new JButton[6] [7]; 
     private ConnectFourBoard board;
     private String Player1, Player2;
-
+    private JTextPane display, display2;
 
     public static void main(String[] args) {
         new Gui();
@@ -100,7 +100,7 @@ public class Gui implements ActionListener{
 	JButton b = makeButton("new_game", "New game", "Starts a new game");
 	toolbar.add(b);
 
-	JTextPane display = new JTextPane();
+	display = new JTextPane();
 	display.setSize(5, 5);
 
 	display.setEditable(false);
@@ -109,7 +109,7 @@ public class Gui implements ActionListener{
 	display.setText ("Player 1:" + Player1);
 	
 	
-	JTextPane display2 = new JTextPane();
+	display2 = new JTextPane();
 	display2.setSize(5, 5);
 
 	display2.setEditable(false);
@@ -149,12 +149,16 @@ public class Gui implements ActionListener{
 		    slot [i] [buttonCol].setBackground(Color.RED);
 		    board.aidMove ('X', i, buttonCol);
 		    board.swapTurns();
+		    display2.setText ("Player 2:" + Player2 + "'s Turn");
+		    display.setText ("Player 1:" + Player1);
 		    break;
 		}
 		else {
 		    slot [i] [buttonCol].setBackground(Color.BLACK);
 		    board.aidMove ('O', i, buttonCol);
 		    board.swapTurns();
+		    display2.setText ("Player 2:" + Player2);
+		    display.setText ("Player 1:" + Player1 + "'s Turn");
 		    break;
 		}
 	    }

@@ -80,15 +80,17 @@ public class Gui implements ActionListener{
                          i > -1; 
                          i--) {
                                 if (slot [i] [buttonCol].getBackground() != Color.BLACK && slot [i] [buttonCol].getBackground()!= Color.RED) {
-				    if (board.go1) {
+				    if (board.isPlayerOneTurn()) {
                                         slot [i] [buttonCol].setBackground(Color.RED);
-					board.aidMove ('X', i, buttonCol);
+										board.aidMove ('X', i, buttonCol);
+										board.swapTurns();
                                         break;
 				    }
 				    else {
-					slot [i] [buttonCol].setBackground(Color.BLACK);
-					board.aidMove ('O', i, buttonCol);
-                                        break;
+						slot [i] [buttonCol].setBackground(Color.BLACK);
+						board.aidMove ('O', i, buttonCol);
+						board.swapTurns();
+                        break;
 				    }
 				}
 		}

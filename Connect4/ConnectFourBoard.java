@@ -17,6 +17,10 @@ public class ConnectFourBoard{
 	go1 = true;
 	Pl1 = 'X';
 	Pl2 = 'O';
+	setBoard();
+    }
+
+    public void setBoard(){
 	for (int i=0; i<board.length; i++){
 	    for (int j=0; j<board[i].length; j++){
 		board[i][j] = '-';
@@ -56,10 +60,14 @@ public class ConnectFourBoard{
 		while (i != 0 && i != 1 && i != 2 && i != 3 && i != 4 && i != 5 && i != 6){
 		    System.out.println("Choose a column number " + Player1);
 		    try{ 
-			i = Integer.parseInt(input.nextLine());
+			String choice = input.nextLine();
+			if (choice.equals("reset"))
+			    setBoard();
+			System.out.println(board2String(board));
+			i = Integer.parseInt(choice);
 		    }
 		    catch (Exception e) {
-			System.out.println("Please enter a valid column number");
+			System.out.println("Please enter a column number");
 		    }
 		}
 		move(Pl1, i);
@@ -74,10 +82,14 @@ public class ConnectFourBoard{
 		while (i != 0 && i != 1 && i != 2 && i != 3 && i != 4 && i != 5 && i != 6){
 		    System.out.println("Choose a column number " + Player2);
 		    try{ 
-			i = Integer.parseInt(input.nextLine());
+			String choice = input.nextLine();
+			if (choice.equals("reset"))
+			    setBoard();
+			System.out.println(board2String(board));
+			i = Integer.parseInt(choice);
 		    }
 		    catch (Exception e) {
-			System.out.println("Please enter a valid column number");
+			System.out.println("Please enter a column number");
 		    }
 		} 
 		move(Pl2, i);

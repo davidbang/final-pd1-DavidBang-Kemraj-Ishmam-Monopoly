@@ -18,8 +18,7 @@ public class Gui implements ActionListener{
         JOptionPane pane = new JOptionPane ();
 
 
-        String Player1 =  pane.showInputDialog(this 
-                                              ,"Enter name for Player1:");
+        String Player1 =  pane.showInputDialog("Enter name for Player1:");
 
 
         pane.setVisible (true);
@@ -27,8 +26,7 @@ public class Gui implements ActionListener{
         JOptionPane pane2 = new JOptionPane ();
 
 
-        String Player2 =  pane2.showInputDialog(this 
-                                              ,"Enter name for Player2:");
+        String Player2 =  pane2.showInputDialog("Enter name for Player2:");
      
 	pane2.setVisible (true);
 

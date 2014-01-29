@@ -62,21 +62,15 @@ public class Gui implements ActionListener{
 	
 	@Override 
 	public void actionPerformed (ActionEvent e) {
-		int buttonCol = e.getSource().getCol();
+		myJButton b = (myJButton)e.getSource();
+		int buttonCol = b.getCol();
 		for (int i = 5; //starting at bottom of board
 			 i > -1; 
 			 i--) {
 				if (slot [i] [buttonCol].getBackground() != Color.BLACK && slot [i] [buttonCol].getBackground()!= Color.RED) {
 					slot [i] [buttonCol].setBackground(Color.RED);
+					break;
 				}
 			}
 	}
 }
-
-/*
-	     for (int i = 0 ; i < 6; i ++) {	 
-		     for (int j = 0; j < 7; j ++) {
-			 if (e.getSource () == slot [i] [j]) {
-			     if (slot[i] [j].getBackground() != Color.BLACK && slot [i] [j].getBackground()!= Color.RED) {
-				 slot [i] [j].setBackground (Color.RED);
-*/

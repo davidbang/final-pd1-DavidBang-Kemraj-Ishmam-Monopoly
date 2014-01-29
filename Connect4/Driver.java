@@ -19,7 +19,7 @@ public class Driver{
 		System.out.println("Making Game");
 		ConnectFourBoard game = new ConnectFourBoard(P1, P2);
 		System.out.println("Game Made");
-		game.Play_Game();
+		//	game.Play_Game();
 
 	}
 

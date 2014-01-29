@@ -7,6 +7,7 @@ import java.awt.event.*;
 public class Gui implements ActionListener{
     private JButton[] []slot = new JButton[6] [7]; 
     private ConnectFourBoard board;
+    private String Player1, Player2;
 
 
     public static void main(String[] args) {
@@ -20,7 +21,7 @@ public class Gui implements ActionListener{
         JOptionPane pane = new JOptionPane ();
 
 
-        String Player1 =  pane.showInputDialog("Enter name for Player1:");
+        Player1 =  pane.showInputDialog("Enter name for Player1:");
 
 
         pane.setVisible (true);
@@ -28,7 +29,7 @@ public class Gui implements ActionListener{
         JOptionPane pane2 = new JOptionPane ();
 
 
-        String Player2 =  pane2.showInputDialog("Enter name for Player2:");
+        Player2 =  pane2.showInputDialog("Enter name for Player2:");
      
 	pane2.setVisible (true);
 
@@ -94,17 +95,26 @@ public class Gui implements ActionListener{
 				    }
 				}
 		}
+		int n = -1;
 		if( board.checkAll ('X')) {
-		    JOptionPane.showMessageDialog(null, "Player 1 WINS");
-        
+		    n = JOptionPane.showConfirmDialog(null, Player1 + " WINS. Play Again?", Player1 + " WINS", JOptionPane.YES_NO_OPTION);
+
 		}
 		if (board.checkAll ('O') ){
-		    JOptionPane.showMessageDialog(null, "Player 2 WINS");
+		    n = JOptionPane.showConfirmDialog(null, Player2 + " WINS. Play Again?", Player2 + " WINS", JOptionPane.YES_NO_OPTION);
 
+		}
+		if (n == 0) {
+		    for (int i=0; i< 6; i++) {
+			for (int j=0; j< 7; j++) {
+			    slot [i] [j].setBackground (null);
+			}
+		    }
+		    board = new ConnectFourBoard (Player1,Player2);
+		}
+		    
+	        if (n == 1) {
+		    System.exit (0);
 		}
 	}
 }
-
-						   
-					
-      

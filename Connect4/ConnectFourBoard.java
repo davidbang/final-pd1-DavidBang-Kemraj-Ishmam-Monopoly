@@ -97,7 +97,7 @@ public class ConnectFourBoard{
 	return output;
     }
 
-    public boolean horizontalCheck(char icon){
+    private boolean horizontalCheck(char icon){
 	for (int i= board.length-1;i>0; i--){
 	    for (int j =0; j<4; j++){
 			if (board[i][j]== icon && 
@@ -111,45 +111,49 @@ public class ConnectFourBoard{
 	return false;
     }
 	
-	public boolean verticalCheck(char icon) {
+    private boolean verticalCheck(char icon) {
 	for (int i = 5 ; i > 2 ; i--) {
-		for (int j = 0; j < 7; j++){
-			if (board[i][j]== icon && 
-				board[i-1][j]== icon && 
-				board[i-2][j]== icon && 
-				board[i-3][j]== icon){
-					return true;
-				}
-		}	
+	    for (int j = 0; j < 7; j++){
+		if (board[i][j]== icon && 
+		    board[i-1][j]== icon && 
+		    board[i-2][j]== icon && 
+		    board[i-3][j]== icon){
+		    return true;
+		}
+	    }	
 	}
 	return false;
     }
 	
-	public boolean diagonalCheckRight(char icon) {
+    private boolean diagonalCheckRight(char icon) {
 	for (int i = 5 ; i > 2 ; i--) {
-		for (int j = 0; j < 4; j++){
-			if (board[i][j]== icon && 
-				board[i-1][j+1]== icon && 
-				board[i-2][j+2]== icon && 
-				board[i-3][j+3]== icon){
-					return true;
-				}
-		}	
+	    for (int j = 0; j < 4; j++){
+		if (board[i][j]== icon && 
+		    board[i-1][j+1]== icon && 
+		    board[i-2][j+2]== icon && 
+		    board[i-3][j+3]== icon){
+		    return true;
+		}
+	    }	
 	}
 	return false;
     }
 	
-	public boolean diagonalCheckLeft(char icon) {
+    private boolean diagonalCheckLeft(char icon) {
 	for (int i = 5 ; i > 2 ; i--) {
-		for (int j = 6; j > 2; j--){
-			if (board[i][j]== icon && 
-				board[i-1][j-1]== icon && 
-				board[i-2][j-2]== icon && 
-				board[i-3][j-3]== icon){
-					return true;
-				}
-		}	
+	    for (int j = 6; j > 2; j--){
+		if (board[i][j]== icon && 
+		    board[i-1][j-1]== icon && 
+		    board[i-2][j-2]== icon && 
+		    board[i-3][j-3]== icon){
+		    return true;
+		}
+	    }	
 	}
 	return false;
+    }
+
+    public boolean checkAll(char icon){
+	return (horizontalCheck(icon)||verticalCheck(icon)||diagonalCheckRight(icon)||diagonalCheckLeft(icon));	
     }
 }

@@ -40,7 +40,7 @@ public class Gui implements ActionListener{
 
 	for (int i=0; i< 6; i++) {
             for (int j=0; j< 7; j++) {
-		slot [i] [j]  = new JButton(i + "," + j);
+		slot [i] [j]  = new myJButton(i, j);
 		slot [i] [j].addActionListener(this);
 		slot [i] [j].setPreferredSize (new Dimension (20, 20));
 		panel.add(slot[i] [j]);
@@ -59,21 +59,24 @@ public class Gui implements ActionListener{
 	guiFrame.setVisible(true);
     
     }
-	 @Override 
-	 public void actionPerformed (ActionEvent e) {
+	
+	@Override 
+	public void actionPerformed (ActionEvent e) {
+		int buttonCol = e.getSource().getCol();
+		for (int i = 5; //starting at bottom of board
+			 i > -1; 
+			 i--) {
+				if (slot [i] [buttonCol].getBackground() != Color.BLACK && slot [i] [buttonCol].getBackground()!= Color.RED) {
+					slot [i] [buttonCol].setBackground(Color.RED);
+				}
+			}
+	}
+}
+
+/*
 	     for (int i = 0 ; i < 6; i ++) {	 
 		     for (int j = 0; j < 7; j ++) {
 			 if (e.getSource () == slot [i] [j]) {
 			     if (slot[i] [j].getBackground() != Color.BLACK && slot [i] [j].getBackground()!= Color.RED) {
 				 slot [i] [j].setBackground (Color.RED);
-			     }
-			 }
-		     }
-	     }
-	 }
-}
-
-
-
-
-
+*/

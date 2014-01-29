@@ -22,14 +22,14 @@ public class Gui implements ActionListener{
 	board = new ConnectFourBoard (Player1,Player2);
     }
 
-	public static JButton makeButton(String imgName,
+	public JButton makeButton(String imgName,
 								String actionCommand,
 								String toolTipText) {
 		//look for the image
 		String imgLocation = "images/" + imgName + ".jpg";
 				
 		//creating and initializing the button
-		JButton button = new JButton();//lol buttocks
+		JButton button = new JButton();
 		button.setActionCommand(actionCommand);
 		button.setToolTipText(toolTipText);
 		button.addActionListener(this);
@@ -79,7 +79,7 @@ public class Gui implements ActionListener{
        
         guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiFrame.setTitle("Connect 4");
-        guiFrame.setSize(1000,1000);
+        guiFrame.setSize(500,500);
         
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(6, 7));
@@ -97,11 +97,8 @@ public class Gui implements ActionListener{
 		JToolBar toolbar = new JToolBar();
 		toolbar.setFloatable(false); //can't move the toolbar anymore
 		//new game
-		JButton b = makeButton("new_game", "New game", "Starts a new game";
+		JButton b = makeButton("new_game", "New game", "Starts a new game");
 		toolbar.add(b);
-		
-		//Whose turn it is
-		JTextField pTurn = new JTextField("It is " + board.getPlayer + "'s turn"
 
 
         // set it to some image of a connect 4 piece, maybe put in action listener
@@ -112,7 +109,7 @@ public class Gui implements ActionListener{
 
 
         guiFrame.getContentPane().add(panel, BorderLayout.CENTER);
-
+		guiFrame.getContentPane().add(toolbar, BorderLayout.PAGE_START);
 
         guiFrame.validate();
         guiFrame.setVisible(true);

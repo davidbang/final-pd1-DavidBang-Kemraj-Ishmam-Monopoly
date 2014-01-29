@@ -63,6 +63,11 @@ public class ConnectFourBoard{
 		    }
 		}
 		move(Pl1, i);
+		if (checkAll(Pl1)){
+		    System.out.println(Player1 + "wins");
+		    play = false;
+		    return;
+		}
 		
 	    }
 	    else{
@@ -76,11 +81,17 @@ public class ConnectFourBoard{
 		    }
 		} 
 		move(Pl2, i);
+		if (checkAll(Pl2)){
+		    System.out.println(Player2 + " wins");
+		    play = false;
+		    return;
+		}
 			
 		
 	    }
 	    go1 = !go1;	    
 	}
+	System.out.println(board2String(board));
     }
 
     public String board2String(char[][] array2D){

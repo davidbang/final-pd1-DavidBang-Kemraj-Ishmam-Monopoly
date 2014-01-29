@@ -22,21 +22,21 @@ public class Gui implements ActionListener{
 	board = new ConnectFourBoard (Player1,Player2);
     }
 
-	public myJButton makeButton(String imgName,
-								String actionCommand,
-								String toolTipText) {
-		//look for the image
-		String imgLocation = "images/" + imgName + ".jpg";
+    public myJButton makeButton(String imgName,
+				String actionCommand,
+				String toolTipText) {
+	//look for the image
+	String imgLocation = "images/" + imgName + ".jpg";
 				
-		//creating and initializing the button
-		myJButton button = new myJButton();
-		button.setActionCommand(actionCommand);
-		button.setToolTipText(toolTipText);
-		button.addActionListener(this);
-		button.setIcon(new ImageIcon(imgLocation));
+	//creating and initializing the button
+	myJButton button = new myJButton();
+	button.setActionCommand(actionCommand);
+	button.setToolTipText(toolTipText);
+	button.addActionListener(this);
+	button.setIcon(new ImageIcon(imgLocation));
 		
-		return button;
-	}
+	return button;
+    }
 
     public Gui()
     {
@@ -45,9 +45,9 @@ public class Gui implements ActionListener{
 
 	try{
 
-        Player1 =  pane.showInputDialog("Enter name for Player1:");
-        pane.setVisible (true);
-	if (Player1.equals ("")){
+	    Player1 =  pane.showInputDialog("Enter name for Player1:");
+	    pane.setVisible (true);
+	    if (Player1.equals ("")){
 		System.exit (0);
 	    }
 	}
@@ -59,14 +59,14 @@ public class Gui implements ActionListener{
         JOptionPane pane2 = new JOptionPane ();
 
 	try{
-        Player2 =  pane2.showInputDialog("Enter name for Player2:");
+	    Player2 =  pane2.showInputDialog("Enter name for Player2:");
     
-	pane2.setVisible (true);
+	    pane2.setVisible (true);
 
-	if (Player1.equals ("")){
+	    if (Player1.equals ("")){
 		System.exit (0);
 	    }
-}
+	}
 	catch (Exception NullPointerException) {
 	    System.exit (0);
 	}
@@ -94,11 +94,32 @@ public class Gui implements ActionListener{
             }
         }
 
-		JToolBar toolbar = new JToolBar();
-		toolbar.setFloatable(false); //can't move the toolbar anymore
-		//new game
-		JButton b = makeButton("new_game", "New game", "Starts a new game");
-		toolbar.add(b);
+	JToolBar toolbar = new JToolBar();
+	toolbar.setFloatable(false); //can't move the toolbar anymore
+	//new game
+	JButton b = makeButton("new_game", "New game", "Starts a new game");
+	toolbar.add(b);
+
+	JTextPane display = new JTextPane();
+	display.setSize(5, 5);
+
+	display.setEditable(false);
+	display.setBackground (Color.RED);
+	display.setForeground(Color.BLUE);
+	display.setText ("Player 1:" + Player1);
+	
+	
+	JTextPane display2 = new JTextPane();
+	display2.setSize(5, 5);
+
+	display2.setEditable(false);
+	display2.setBackground (Color.BLACK);
+	display2.setForeground(Color.WHITE);
+	display2.setText ("Player 2:" + Player2);
+	
+	toolbar.add (display);
+	toolbar.add (display2);
+	
 
 
         // set it to some image of a connect 4 piece, maybe put in action listener
@@ -109,60 +130,60 @@ public class Gui implements ActionListener{
 
 
         guiFrame.getContentPane().add(panel, BorderLayout.CENTER);
-		guiFrame.getContentPane().add(toolbar, BorderLayout.PAGE_START);
+	guiFrame.getContentPane().add(toolbar, BorderLayout.PAGE_START);
 
         guiFrame.validate();
         guiFrame.setVisible(true);
     
     }
         
-        @Override 
-        public void actionPerformed (ActionEvent e) {
-                myJButton b = (myJButton)e.getSource();
-                int buttonCol = b.getCol();
-                for (int i = 5; //starting at bottom of board
-                         i > -1; 
-                         i--) {
-                                if (slot [i] [buttonCol].getBackground() != Color.BLACK && slot [i] [buttonCol].getBackground()!= Color.RED) {
-				    if (board.isPlayerOneTurn()) {
-                                        slot [i] [buttonCol].setBackground(Color.RED);
-										board.aidMove ('X', i, buttonCol);
-										board.swapTurns();
-                                        break;
-				    }
-				    else {
-						slot [i] [buttonCol].setBackground(Color.BLACK);
-						board.aidMove ('O', i, buttonCol);
-						board.swapTurns();
-                        break;
-				    }
-				}
+    @Override 
+    public void actionPerformed (ActionEvent e) {
+	myJButton b = (myJButton)e.getSource();
+	int buttonCol = b.getCol();
+	for (int i = 5; //starting at bottom of board
+	     i > -1; 
+	     i--) {
+	    if (slot [i] [buttonCol].getBackground() != Color.BLACK && slot [i] [buttonCol].getBackground()!= Color.RED) {
+		if (board.isPlayerOneTurn()) {
+		    slot [i] [buttonCol].setBackground(Color.RED);
+		    board.aidMove ('X', i, buttonCol);
+		    board.swapTurns();
+		    break;
 		}
-		if (e.getActionCommand().equals("New game")) {
-			reset();
+		else {
+		    slot [i] [buttonCol].setBackground(Color.BLACK);
+		    board.aidMove ('O', i, buttonCol);
+		    board.swapTurns();
+		    break;
 		}
-		int n = - 1;
-		if( board.checkAll ('X')) {
-		    n = JOptionPane.showConfirmDialog(null, Player1 + " WINS. Play Again?", Player1 + " WINS", JOptionPane.YES_NO_OPTION);
-		    if (n == 0) {
-			reset();
-		    }
-		    else {
-			System.exit (0);
-		    }
+	    }
+	}
+	if (e.getActionCommand().equals("New game")) {
+	    reset();
+	}
+	int n = - 1;
+	if( board.checkAll ('X')) {
+	    n = JOptionPane.showConfirmDialog(null, Player1 + " WINS. Play Again?", Player1 + " WINS", JOptionPane.YES_NO_OPTION);
+	    if (n == 0) {
+		reset();
+	    }
+	    else {
+		System.exit (0);
+	    }
 
-		}
-		if (board.checkAll ('O') ){
+	}
+	if (board.checkAll ('O') ){
 		    
-		    n = JOptionPane.showConfirmDialog(null, Player2 + " WINS. Play Again?", Player2 + " WINS", JOptionPane.YES_NO_OPTION);
-		    if (n == 0) {
-			reset();
-		    }
-		    else {
-			System.exit (0);
-		    }
+	    n = JOptionPane.showConfirmDialog(null, Player2 + " WINS. Play Again?", Player2 + " WINS", JOptionPane.YES_NO_OPTION);
+	    if (n == 0) {
+		reset();
+	    }
+	    else {
+		System.exit (0);
+	    }
 
-		}
-        }
+	}
+    }
 
 }

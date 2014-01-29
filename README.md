@@ -3,7 +3,7 @@ final-pd1-DavidBang-Kemraj-Ishmam-Monopoly
 
 Connect Four, is played on a 7x6 grid, where the goal is to get four pieces in a row. The files for the game are housed in the Connect4 folder, and offer two ways to play. by compiling and runnung the file Gui.java, one can play in a GUI with JButtons as the tokens and red and black pieces. The other option is to compile and run the Driver file, which permits playing directly in the terminal, with 'X' and 'O' as players one and two respectively. 
 
-regardless of which interface is chose, no functionality is lost, and the game remains just as fun and challenging. 
+regardless of which interface is chose, no functionality is lost, and the game remains just as fun and challenging. However, there are a few extra features in the GUI. When runnung the GUI, you will be prompted for Player 1's name, allowing for eassier reference, and the same for player 2. Should you decide that you do not want to play, pressing the cancel button will close the program. Once the game has started, should you  for any reason want to reset the board prior to completing a match, the new game button in the upper left hand corner will do just that. Also, after a player has won the game, you can chose to play again (with the same players) or not (which will automatically exit the game).
 
 At the moment there is no AI, thus only player vs. player is available, and there may be a few glitches in the GUI that were not caught during beta testing.
 

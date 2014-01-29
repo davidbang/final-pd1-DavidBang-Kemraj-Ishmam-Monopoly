@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class ConnectFourBoard{
-    public boolean go1, play;
+    private boolean go1, play;
     public char [][] board;
     public int MoveRow, MoveCol, row, i;
     public String Player1, Player2;
@@ -156,4 +156,12 @@ public class ConnectFourBoard{
     public boolean checkAll(char icon){
 	return (horizontalCheck(icon)||verticalCheck(icon)||diagonalCheckRight(icon)||diagonalCheckLeft(icon));	
     }
+	
+	public boolean isPlayerOneTurn() {
+		return go1;
+	}
+	
+	public void swapTurns(){
+		go1 = !go1;
+	}
 }

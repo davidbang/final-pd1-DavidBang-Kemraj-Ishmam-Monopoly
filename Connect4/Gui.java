@@ -15,6 +15,7 @@ public class Gui implements ActionListener{
 
     public Gui()
     {
+
         JOptionPane pane = new JOptionPane ();
 
 
@@ -28,7 +29,7 @@ public class Gui implements ActionListener{
 
         String Player2 =  pane2.showInputDialog("Enter name for Player2:");
      
-		pane2.setVisible (true);
+	pane2.setVisible (true);
 
         ConnectFourBoard board = new ConnectFourBoard (Player1 , Player2);
 
@@ -78,10 +79,29 @@ public class Gui implements ActionListener{
                          i > -1; 
                          i--) {
                                 if (slot [i] [buttonCol].getBackground() != Color.BLACK && slot [i] [buttonCol].getBackground()!= Color.RED) {
+				    if (board.go1) {
                                         slot [i] [buttonCol].setBackground(Color.RED);
+					board.aidMove ('X', i, buttonCol);
                                         break;
-                                }
-                        }
-        }
+				    }
+				    else {
+					slot [i] [buttonCol].setBackground(Color.BLACK);
+					board.aidMove ('O', i, buttonCol);
+                                        break;
+				    }
+				}
+		}
+		if( board.checkAll ('X')) {
+		    JOptionPane.showMessageDialog(Gui, "Player 1 WINS");
+        
+		}
+		if (board.checkAll ('O') ){
+		    JOptionPane.showMessageDialog(Gui, "Player 2 WINS");
+
+		}
+	}
 }
 
+						   
+					
+      

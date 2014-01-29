@@ -20,6 +20,15 @@ public class ConnectFourBoard{
 	setBoard();
     }
 
+	public String getPlayer() {
+		if (go1) {
+			return Player1;
+			}
+		else {
+			return Player2;
+		}
+	}
+	
     public void setBoard(){
 	for (int i=0; i<board.length; i++){
 	    for (int j=0; j<board[i].length; j++){

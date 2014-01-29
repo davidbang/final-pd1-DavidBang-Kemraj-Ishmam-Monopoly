@@ -101,7 +101,7 @@ public class Gui implements ActionListener{
 		toolbar.add(b);
 		
 		//Whose turn it is
-		JTextField 
+		JTextField pTurn = new JTextField("It is " + board.getPlayer + "'s turn"
 
 
         // set it to some image of a connect 4 piece, maybe put in action listener

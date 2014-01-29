@@ -1,5 +1,35 @@
 final-pd1-DavidBang-Kemraj-Ishmam-Monopoly
 ===================================================
+
+Connect Four, is played on a 7x6 grid, where the goal is to get four pieces in a row. The files for the game are housed in the Connect4 folder, and offer two ways to play. by compiling and runnung the file Gui.java, one can play in a GUI with JButtons as the tokens and red and black pieces. The other option is to compile and run the Driver file, which permits playing directly in the terminal, with 'X' and 'O' as players one and two respectively. 
+
+regardless of which interface is chose, no functionality is lost, and the game remains just as fun and challenging. 
+
+At the moment there is no AI, thus only player vs. player is available, and there may be a few glitches in the GUI that were not caught during beta testing.
+
+Thank you for playing, and enjoy!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Monopoly Stuff:
+
+
 Swag.java was intended to be our interface file, but it does not compile and we cannot figure out why.
 Look at GuiSample for a simple image of how the interface would have looked (but it does not work).
 

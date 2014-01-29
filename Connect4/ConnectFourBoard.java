@@ -8,6 +8,7 @@ public class ConnectFourBoard{
     public String Player1, Player2;
     public Scanner input;
     public char Pl1, Pl2;
+	private int moves;
     
     public ConnectFourBoard(String P1, String P2){
 	Player1 = P1;
@@ -20,6 +21,10 @@ public class ConnectFourBoard{
 	setBoard();
     }
 
+	public int getMoves() {
+		return moves;
+	}
+	
 	public String getPlayer() {
 		if (go1) {
 			return Player1;
@@ -39,6 +44,7 @@ public class ConnectFourBoard{
 
     public void aidMove(char player, int row, int col){
         this.board[row][col]=player;
+		moves++;
     } 
     
     public boolean move(char player, int col){

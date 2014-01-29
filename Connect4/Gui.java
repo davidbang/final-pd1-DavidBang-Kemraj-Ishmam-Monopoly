@@ -22,6 +22,21 @@ public class Gui implements ActionListener{
 	board = new ConnectFourBoard (Player1,Player2);
     }
 
+	public static JButton makeButton(String imgName,
+								String actionCommand,
+								String toolTipText) {
+		//look for the image
+		String imgLocation = "images/" + imgName + ".jpg";
+				
+		//creating and initializing the button
+		JButton button = new JButton();//lol buttocks
+		button.setActionCommand(actionCommand);
+		button.setToolTipText(toolTipText);
+		button.addActionListener(this);
+		button.setIcon(new ImageIcon(imgLocation));
+		
+		return button;
+	}
 
     public Gui()
     {
@@ -74,7 +89,14 @@ public class Gui implements ActionListener{
             }
         }
 
-
+		JToolBar toolbar = new JToolBar();
+		toolbar.setFloatable(false); //can't move the toolbar anymore
+		//new game
+		JButton b = makeButton("new_game", "New game", "Starts a new game";
+		toolbar.add(b);
+		
+		//Whose turn it is
+		JTextField 
 
 
         // set it to some image of a connect 4 piece, maybe put in action listener

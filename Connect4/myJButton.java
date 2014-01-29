@@ -1,4 +1,4 @@
-import javax.swing.*;
+import javax.swing.JButton;
 
 public class myJButton extends JButton {
 
@@ -6,6 +6,7 @@ public class myJButton extends JButton {
 	private int col; 
 	
 	public myJButton(int r, int c) {
+		super();
 		row = r;
 		col = c;
 	}

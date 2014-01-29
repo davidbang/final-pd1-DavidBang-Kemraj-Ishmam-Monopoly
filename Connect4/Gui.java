@@ -6,6 +6,7 @@ import java.awt.event.*;
 
 public class Gui implements ActionListener{
     private JButton[] []slot = new JButton[6] [7]; 
+    private ConnectFourBoard board;
 
 
     public static void main(String[] args) {
@@ -31,7 +32,7 @@ public class Gui implements ActionListener{
      
 	pane2.setVisible (true);
 
-        ConnectFourBoard board = new ConnectFourBoard (Player1 , Player2);
+        board = new ConnectFourBoard (Player1 , Player2);
 
 
         JFrame guiFrame = new JFrame();
@@ -92,11 +93,11 @@ public class Gui implements ActionListener{
 				}
 		}
 		if( board.checkAll ('X')) {
-		    JOptionPane.showMessageDialog(Gui, "Player 1 WINS");
+		    JOptionPane.showMessageDialog(null, "Player 1 WINS");
         
 		}
 		if (board.checkAll ('O') ){
-		    JOptionPane.showMessageDialog(Gui, "Player 2 WINS");
+		    JOptionPane.showMessageDialog(null, "Player 2 WINS");
 
 		}
 	}

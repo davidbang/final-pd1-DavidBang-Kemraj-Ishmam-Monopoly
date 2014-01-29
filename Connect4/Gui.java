@@ -19,7 +19,7 @@ public class Gui implements ActionListener{
     }
    
 
- //resets the Gui interface to a clean connect 4 board
+    //resets the Gui interface to a clean connect 4 board
     public void reset () {
 	for (int i=0; i< 6; i++) {
 	    for (int j=0; j< 7; j++) {
@@ -202,13 +202,13 @@ public class Gui implements ActionListener{
 	}
 	//if the board is full or 42 moves have been made, and noone has won yet, the game is declared a draw and you can choose to play again.
 	if (board.getMoves() >= 42) {
-			n = JOptionPane.showConfirmDialog(null, "It's a draw! Play Again?", "DRAW!", JOptionPane.YES_NO_OPTION);
-			if (n == 0) {
-			reset();
-		    }
-		    else {
-			System.exit (0);
-		    }
+	    n = JOptionPane.showConfirmDialog(null, "It's a draw! Play Again?", "DRAW!", JOptionPane.YES_NO_OPTION);
+	    if (n == 0) {
+		reset();
+	    }
+	    else {
+		System.exit (0);
+	    }
         }
 
     }
